@@ -29,7 +29,7 @@ public boolean login (String userna, String pass) {
 	 usercont.add(new User("haya","563",UserType.TENANT));
 	 usercont.add(new User("jaber","123",UserType.TENANT));
 	 usercont.add(new User("maha","000",UserType.TENANT));
-	 usercont.add(new User("majd","2369",UserType.INSTALLER));
+	 usercont.add(new User("Majd","2369",UserType.INSTALLER));
 
 	test= check(userna, pass);
 	return test;
@@ -59,10 +59,12 @@ public boolean login (String userna, String pass) {
 					return true;
 				}
 			}
+			 
+			
 		}
-		
 		logger.info("Login Unsuccessful, the password or username incorrect");
 		return false;
+	
 	}
 
 public String getPassword() {
