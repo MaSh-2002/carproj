@@ -51,7 +51,7 @@ public boolean login (String userna, String pass) {
 			if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
 				if(user1.getType().equals(UserType.ADMIN)) {
 					Admin admin1= new Admin();
-					admin1.adminWork();
+					admin1.adminWork();////////////////////////////////
 
 					return true;
 				}
