@@ -64,7 +64,7 @@ public boolean login (String userna, String pass) {
 				}
 				else if(user1.getType().equals(UserType.TENANT)) {
 			Pcatalog cat=new Pcatalog();
-			cat.veiwcatalogs();
+			cat.veiwCatalogs();
 					
 					return true;
 				}

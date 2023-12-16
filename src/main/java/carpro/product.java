@@ -15,6 +15,16 @@ public class product {
 		this.typeid=typeid;
 		this.pid = ++idSequence;
 	}
+	private InstallationDetails installationDetails;
+
+    // Getter and setter for installationDetails
+    public InstallationDetails getInstallationDetails() {
+        return installationDetails;
+    }
+
+    public void setInstallationDetails(InstallationDetails installationDetails) {
+        this.installationDetails = installationDetails;
+    }
 
 	
 }

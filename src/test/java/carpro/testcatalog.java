@@ -17,7 +17,7 @@ public class testcatalog {
 @Given("the user is on the product catalog page")
 public void the_user_is_on_the_product_catalog_page() {
     
-    g.veiwcatalogs();///1
+    g.veiwCatalogs();///1
 
 	
 	

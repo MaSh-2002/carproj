@@ -36,7 +36,7 @@ public void displayDashboard() {
 		
 		switch (choice) {
 			case 1:
-				Pcatalog.veiwcatalogs();
+				Pcatalog.veiwCatalogs();
 				break;
 				
 				

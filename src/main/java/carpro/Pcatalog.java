@@ -65,19 +65,63 @@ public class Pcatalog {
 	}
 
 	
-	public static void veiwcatalogs() {/// veiw the catalogs
-		pagenum = 1;
-		for (Category category : categories) {
-	
-	System.out.println(category.toString());
+	public static void veiwCatalogs() {
+	    pagenum = 1;
 
-}
-		System.out.print("Enter catagory name:");
-		Scanner scanner = new Scanner(System.in);
-		int s = scanner.nextInt();
-		veiwproducts(s);
+	    // Display categories
+	    for (Category category : categories) {
+	        System.out.println(category.toString());
+	    }
+
+	    // Get user input
+	    int s = 0;
+	    boolean validInput = false;
+	    Scanner scanner = new Scanner(System.in);
+
+	    while (!validInput) {
+	        System.out.print("Enter category name or ID:");
+	        String input = scanner.nextLine().trim();
+
+	        try {
+	            s = Integer.parseInt(input);
+	            validInput = true;
+	        } catch (NumberFormatException e) {
+	            // If not a number, check if it matches a category name
+	            for (Category category : categories) {
+	                if (category.getName().equalsIgnoreCase(input)) {
+	                    s = category.getId();
+	                    validInput = true;
+	                    break;
+	                }
+	            }
+
+	            if (!validInput) {
+	                System.out.println("Invalid input. Please enter a valid category name or ID.");
+	            }
+	        }
+	    }
+
+	    // Call veiwproducts with the validated input
+	    veiwproducts(s);
+
+	    // Loop for entering product names
+	    boolean continueEnteringProducts = true;
+
+	    while (continueEnteringProducts) {
+	        System.out.print("Enter product name (or type 'exit' to finish entering products): ");
+	        String productName = scanner.nextLine().trim();
+
+	        if ("exit".equalsIgnoreCase(productName)) {
+	            continueEnteringProducts = false;
+	        } else {
+	            veiwdetails(productName);
+	        }
+	    }
+
+	    // After the loop, if you want to go back to the catalog view
+	    veiwCatalogs();  // Add
 	}
-
+	
 	
 	
 	public static void veiwproducts(int id) {/// veiw the products
