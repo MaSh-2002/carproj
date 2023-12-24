@@ -1,14 +1,20 @@
 package carpro;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.logging.Logger;
 
 
 
 public class Pcatalog {
 	private boolean shouldPromptProductName = true; // Flag to control prompting for product name
+	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
 
 	public static int pagenum;
-	public int search = 0;
+	public static int search = 0;
+	public  static List<Order> orders = new ArrayList() ;
+
 	private  static List<Category> categories = new ArrayList() {{
 		add(new Category("Exterior"));
 		add(new Category("Electronics"));
@@ -67,6 +73,8 @@ public class Pcatalog {
 	
 	public static void veiwCatalogs() {
 	    pagenum = 1;
+	    
+		System.out.println("*** To search for a product enter 's'");
 
 	    // Display categories
 	    for (Category category : categories) {
@@ -81,7 +89,15 @@ public class Pcatalog {
 	    while (!validInput) {
 	        System.out.print("Enter category name or ID:");
 	        String input = scanner.nextLine().trim();
+if(input.equals("s")) {
+	 System.out.println("Enter product name");
+	    Scanner sc = new Scanner(System.in);
 
+     String in = sc.nextLine();
+	searchForProduct(in);
+	
+	
+}else {
 	        try {
 	            s = Integer.parseInt(input);
 	            validInput = true;
@@ -94,6 +110,7 @@ public class Pcatalog {
 	                    break;
 	                }
 	            }
+	            
 
 	            if (!validInput) {
 	                System.out.println("Invalid input. Please enter a valid category name or ID.");
@@ -113,6 +130,7 @@ public class Pcatalog {
 
 	        if ("exit".equalsIgnoreCase(productName)) {
 	            continueEnteringProducts = false;
+	        
 	        } else {
 	            veiwdetails(productName);
 	        }
@@ -120,6 +138,9 @@ public class Pcatalog {
 
 	    // After the loop, if you want to go back to the catalog view
 	    veiwCatalogs();  // Add
+	    
+	    
+	}
 	}
 	
 	
@@ -152,10 +173,19 @@ public class Pcatalog {
 				System.out.println(product.name);
 				System.out.println(product.price + "$");
 				System.out.println(product.type);
-
+				System.out.println("Enter 1 if you want to buy this product ");
+				Scanner sc = new Scanner(System.in);
+				int si = sc.nextInt();
+				if(si==1) {
+					
+					buy(product);
+				}
 			}
 
 		}
+		
+		
+	
 
 	}
 
@@ -170,12 +200,15 @@ public class Pcatalog {
 		pagenum = i;
 	}
 
-	public void searchForProduct(String searchQuery) {
+	public static void searchForProduct(String searchQuery) {
 		search = 0;
 		pagenum = 4;
 
 		for (product product : products) {
-			if (product.name == searchQuery) {
+
+			if (product.name.equalsIgnoreCase(searchQuery) ) {
+				
+
 				search = 1;
 				System.out.println(product.name);
 				System.out.println(product.price);
@@ -184,24 +217,85 @@ public class Pcatalog {
 		}
 
 	}
-/*
-	public void printcatalogs() {// print catagories for admin
+	public static void buy(product product) {
 		
-		for (Category category : categories) {
 		
-			System.out.println(category.getName());
-			for (product product : products) {
-				if (product.typeid == category.getId()) {
-					System.out.println(product.name);
+		
+	    logger.info("Enter your car model");
+	    Scanner s= new Scanner(System.in);
+		String model = s.nextLine();
+	       int f=2;
 
-					
-				}
-			}
-		}
+		while(f==0||f==2) {
+	    logger.info("Enter the installation date you want (and we will tell tou if its available) ");
+	    Scanner c= new Scanner(System.in);
+	    System.out.print("Enter the date and time (YYYY-MM-DD/H:mm): ");
+        String userInput = c.nextLine();
+
+     
+        for (Order order1 : orders) {
+
+if(userInput.equalsIgnoreCase(order1.getdateTime1())){
+	
+	System.out.print("not allowed date ");
+	
+f=0;
+break;
+	
+        }
+        }
+        if(f==2) {
+        	
+        	 Order order =new Order(model,userInput,product.name,product.price);
+     		orders.add(order);
+     		System.out.print("The order has been accepted ");
+break;
+        }
 
 	}
-*/
+        
+		
+		
+		
+		
+	/*
+	    logger.info("Enter your car model");
+	    Scanner s= new Scanner(System.in);
+		String model = s.nextLine();
+	       int f=1;
+
+		while(f==1) {
+	    logger.info("Enter the installation date you want (and we will tell tou if its available) ");
+	    Scanner c= new Scanner(System.in);
+	    System.out.print("Enter the date and time (YYYY-MM-DDTHH:mm:ss): ");
+        String userInput = c.nextLine();
+
+        // Define the DateTimeFormatter for the expected format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+
+        // Parsing user input to a LocalDateTime object
+        LocalDateTime enteredDateTime = LocalDateTime.parse(userInput, formatter);
+        for (Order order1 : orders) {
+        	int comparisonResult = order1.getdateTime1().compareTo(enteredDateTime);
+
+if(comparisonResult==0) {
+	 Order order =new Order(model,enteredDateTime,product.name,product.price);
+		orders.add(order);
+f=0;
 	
+        }
+        }
+        if(f==1)System.out.print("not allowed date ");
+
+	}
+        
+	//	InstallationDetails installationDetails= new InstallationDetails (model,data);
+		//product.setInstallationDetails(installationDetails);
+		*/
+		
+		
+	}
+
 	public static boolean deleteproduct (String name) {
 		boolean isRemoved= false;
 		for (product prod : products) {

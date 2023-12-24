@@ -6,14 +6,13 @@ import java.util.*;
 
 
 public class Admin {
-	
+
 	private static final Logger logger = Logger.getLogger(Admin.class.getName());	
 	Pcatalog catalog;
 	
 	public Admin() {
-		logger.info("Welcome to Admin Dashboard");
-
 		
+		logger.info("Welcome to Admin Dashboard");
 		
 	}
 
@@ -24,13 +23,14 @@ public void adminWork() {
 
 boolean isLoggedIn = true;
 
-public void displayDashboard() {
-	
+public void displayDashboard(ArrayList<User> usercont) {
 	while (isLoggedIn) {
 		logger.info("Welcome to Admin Dashboard Panel");
 		logger.info("1 - Show the catalog");
 		logger.info("2 - edit catagory");
 		logger.info("3 - edit product");
+		logger.info("4 - veiw customers");
+
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
 		
@@ -86,11 +86,14 @@ public void displayDashboard() {
 						break;
 					case 2:
 						break;	
-				}	
+				}
+			case 4:
+				veiwCustomer(usercont);
+				break;
 
 			default:
 				logger.info("Invalid choice");
-				displayDashboard();
+				displayDashboard(usercont);
 				break;
 		}}
 }
@@ -116,13 +119,27 @@ public void printcatalogs() {// print catagories for admin
 	
 
 }
+public void veiwCustomer(ArrayList<User> usercont) {
+	
+	
+	
+	
+	
+	for(User user1: usercont) {
+			if(user1.getType().equals(UserType.TENANT)) {
+				
+
+			
+				System.out.println(user1.getUsername());
+
+	
+}
 
 
+	}
 
 
-
-
-
+}
 
 
 

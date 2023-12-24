@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 
 public class Updateinfo {
 	Tenant T = new Tenant();
+	
 	 int updatePhone;
 	 int updateBank;
 	 int updateEmail;

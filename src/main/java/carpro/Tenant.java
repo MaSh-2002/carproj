@@ -25,7 +25,13 @@ public class Tenant {
 		    this.password = password;
 	  }
 	  public Tenant() {
-		  name=null;
+	  }
+	  public Tenant(String name , String email, String password) {
+		  this.name=name;
+		  this.email = email;
+		  this.password = password;
+		  
+		  
 	  }
 
 	  public void updatePhoneNumber(String newPhoneNumber) {
@@ -93,14 +99,14 @@ public class Tenant {
 			  public  boolean flageUpdateEmail  = false;
 
 			  public void viewProfile() {
-			    logger.info("Viewing tenant profile...");
+			    logger.info("Viewing customer profile...");
 			    logger.info(() -> "Name: " + name);
 			    logger.info(() -> "Phone Number: " + phoneNumber);
 			    logger.info(() -> "Bank Card: " + bankCard);
 			    logger.info(() -> "Email: " + email);
 			    logger.info(() -> "Password: " + password);
 			    logger.info("GOBACK_LABEL");
-			    logger.info("2 - Edit Profile Information");
+			    logger.info("1 - Edit Profile Information");
 			    int choice = inputscanner.nextInt();
 
 			    switch (choice) {
@@ -170,7 +176,24 @@ public class Tenant {
 		  
 		  
 		  
-			public void tenantPage() {}
+			public void tenantPage() {
+				System.out.println("W E L C O M E \n\r");
+				System.out.println("1. veiw your profile \n2. veiw catalog \n\r");
+				Scanner x=new Scanner(System.in);
+				int shoose= x.nextInt();
+if(shoose==1) {
+	
+	viewProfile();
+	
+}else if(shoose ==2) {
+	
+Pcatalog cat=new Pcatalog();
+cat.veiwCatalogs();
+}
+				
+				
+				
+			}
 
 
 }

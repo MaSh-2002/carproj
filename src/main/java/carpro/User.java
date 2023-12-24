@@ -16,15 +16,16 @@ public  String username;
 	private UserType type;
 	public boolean log;
 	public String address;
-	public String email;
+	public String Email;
 	public String name;
 	public String id;
 	public String phone;
 	 float point=0;
-	public User(String username, String password, UserType type) {
+	public User(String username, String password, String email, UserType type) {
 		this.username=username;
 		this.password=password;
 		this.type=type;
+		this.Email=email;
 	}
 
 
@@ -34,12 +35,12 @@ public  String username;
 	
 	
 public boolean login (String userna, String pass) {
-	 usercont.add(new User("shahd","258",UserType.ADMIN));
-	 usercont.add(new User("farah","3224",UserType.TENANT));
-	 usercont.add(new User("haya","563",UserType.TENANT));
-	 usercont.add(new User("jaber","123",UserType.TENANT));
-	 usercont.add(new User("maha","000",UserType.TENANT));
-	 usercont.add(new User("Majd","2369",UserType.INSTALLER));
+	 usercont.add(new User("shahd","258","sh@gmail.com",UserType.ADMIN));
+	 usercont.add(new User("farah","3224","fa@gmail.com",UserType.TENANT));
+	 usercont.add(new User("haya","563","sh@gmail.com",UserType.TENANT));
+	 usercont.add(new User("jaber","123","ja@gmail.com",UserType.TENANT));
+	 usercont.add(new User("maha","000","mh@gmail.com",UserType.TENANT));
+	 usercont.add(new User("Majd","m","ma@gmail.com",UserType.INSTALLER));
 
 	test= check(userna, pass);
 	return test;
@@ -51,7 +52,7 @@ public boolean login (String userna, String pass) {
 			if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
 				if(user1.getType().equals(UserType.ADMIN)) {
 					Admin admin1= new Admin();
-					admin1.adminWork();////////////////////////////////
+					admin1.displayDashboard(usercont);////////////////////////////////
 
 					return true;
 				}
@@ -63,9 +64,8 @@ public boolean login (String userna, String pass) {
 					return true;
 				}
 				else if(user1.getType().equals(UserType.TENANT)) {
-			Pcatalog cat=new Pcatalog();
-			cat.veiwCatalogs();
-					
+			Tenant tenant = new Tenant(username,user1.Email,user1.password);
+			tenant.tenantPage();
 					return true;
 				}
 			}

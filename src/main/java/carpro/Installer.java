@@ -1,7 +1,48 @@
 package carpro;
 
+import java.util.Scanner;
+import java.util.logging.Logger;
+
 public class Installer {
-public void installerWork() {}
+	private static final Logger logger = Logger.getLogger(Installer.class.getName());	
+
+	boolean isLoggedIn = true;
+
+public void installerWork() {
+	
+	Scanner in = new Scanner(System.in);
+	while (isLoggedIn) {
+		logger.info("Welcome to Installer Dashboard Panel");
+		logger.info("1 - Show schedule appointments");
+	
+
+		int choice = in.nextInt();
+
+		switch (choice) {
+			case 1:
+
+				 for (Order order : Pcatalog.orders) {
+					 System.out.println("test");
+
+		           order.toString()  ;
+				 }
+				break;
+				
+				
+				
+		
+	
+			default:
+				logger.info("Invalid choice");
+				installerWork();
+				break;
+		}
+		
+}
+
+
+	
+}
 private product selectedProduct;
 
 private boolean installationRequestConfirmed = false;
