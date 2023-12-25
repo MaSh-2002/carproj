@@ -16,11 +16,7 @@ public class testcatalog {
 
 @Given("the user is on the product catalog page")
 public void the_user_is_on_the_product_catalog_page() {
-    
-    g.veiwCatalogs();///1
-
-	
-	
+    System.out.println("User is on the product catalog page");
 	
 }
 
@@ -28,7 +24,7 @@ public void the_user_is_on_the_product_catalog_page() {
 public void the_user_selects_a_category_e_g_interior() {
 	
 	
-g.veiwproducts(1);
+g.veiwproducts(3,1);
 
 
 }
@@ -44,13 +40,14 @@ public void the_system_should_display_a_list_of_products_in_that_category() {
 
 @Given("the user is on the products page")
 public void the_user_is_on_the_products_page() {
-   
+    System.out.println("User is on the product products page");
+
 	g.setPagenum(2);
 	}
 
 @When("the user selects a specific product")
 public void the_user_selects_a_specific_product() {
-    g.veiwdetails("wheel"); // Replace "wheel" with a valid product name
+    g.veiwdetails("wheel",1); // Replace "wheel" with a valid product name
 
 }
 
@@ -80,16 +77,6 @@ public void the_system_should_display_relevant_products_matching_the_search_quer
 }
 
 
-/*
-@When("the user enters a search query {string}")
-public void the_user_enters_a_search_query() {
-    g.searchForProduct("wheel"); // Method to simulate user entering a search query
-}
 
-@Then("the system should display relevant products matching the search query")
-public void the_system_should_display_relevant_products_matching_the_search_query() {
-    assertTrue(g.search==1);
-    // Add assertions or validation logic to verify the relevant products
-}*/
 
 }
