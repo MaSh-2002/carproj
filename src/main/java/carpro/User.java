@@ -39,7 +39,7 @@ public boolean login (String userna, String pass) {
 	 usercont.add(new User("farah","3224","fa@gmail.com",UserType.TENANT));
 	 usercont.add(new User("haya","563","sh@gmail.com",UserType.TENANT));
 	 usercont.add(new User("jaber","123","ja@gmail.com",UserType.TENANT));
-	 usercont.add(new User("maha","000","mh@gmail.com",UserType.TENANT));
+	 usercont.add(new User("maha","000","sshahdyyaseen66@gmail.com",UserType.TENANT));
 	 usercont.add(new User("Majd","m","ma@gmail.com",UserType.INSTALLER));
 
 	test= check(userna, pass);
