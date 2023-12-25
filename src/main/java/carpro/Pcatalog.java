@@ -210,10 +210,11 @@ public class Pcatalog {
 
 		    
 	    }
-
+if(i==0){
 	    if (!productFound) {
 	        System.out.println("Product not found.");
 	    }
+	}
 	}
 	public int getPagenum() {
 
