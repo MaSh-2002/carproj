@@ -96,7 +96,7 @@ public class Pcatalog {
 	            Scanner sc = new Scanner(System.in);
 
 	            String in = sc.nextLine();
-	            searchForProduct(in);
+	            searchForProduct(in,0);
 
 	        } else {
 	            try {
@@ -227,7 +227,7 @@ if(i==0){
 		pagenum = i;
 	}
 
-	public static void searchForProduct(String searchQuery) {
+	public static void searchForProduct(String searchQuery,int i ) {
 	    search = 0;
 	    pagenum = 4;
 	    boolean productFound = false;
@@ -244,7 +244,7 @@ if(i==0){
 	            break;
 	        }
 	    }
-
+if(i==0){
 	    if (productFound) {
 	        // If the product is found, prompt the user for further actions
 	        System.out.print("Enter 'buy' to purchase the product, or 'back' to return to categories: ");
@@ -261,6 +261,7 @@ if(i==0){
 	            veiwCatalogs();
 	        }
 	    }
+	}
 	}
 	public static void buy(product product,String modle, String date,int i) {
 	    Scanner scanner = new Scanner(System.in);
