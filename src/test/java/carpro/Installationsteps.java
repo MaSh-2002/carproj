@@ -62,7 +62,7 @@ private product product =new product("wheel", "Exterior", 50, 1);
     @Then("the system should confirm the appointment and provide relevant details")
     public void thenSystemShouldConfirmAppointmentAndProvideDetails() {
     	// assertTrue(catalog.buycheck);
-    	assertTrue(true;
+    	assertTrue(true);
        
     }
 }
