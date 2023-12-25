@@ -39,7 +39,7 @@ start();
             Scanner iu = new Scanner(System.in);
             String pass = iu.nextLine();
 
-            if (user.login(name, pass)) {
+            if (user.login(name, pass,0)) {
                 // Successful login, navigate to the main menu
                 mainMenu();
             } else {
