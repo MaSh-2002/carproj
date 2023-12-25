@@ -292,7 +292,7 @@ String model;
 	            orders.add(order);
 	            System.out.println("The order has been accepted.");
 			    buycheck=true;
-
+if(i==0){
 	            // After the purchase, provide options to the customer
 	            System.out.println("Options:");
 	            System.out.println("1. Return to catalog");
@@ -307,7 +307,9 @@ String model;
 	                System.out.println("Invalid input. Returning to main menu...");
 	                main.start();  // Go back to the main page for any other input
 	            }
+		}
 	        }
+		    
 	    }
 	}
 		
