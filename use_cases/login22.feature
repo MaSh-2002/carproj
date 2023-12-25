@@ -8,7 +8,7 @@ Feature: login
 		Then I should be logged in to admin page
 
 	Scenario: Successful Installer Login
-		When I submit user name "Majd" and password "2369" and should enter to installer page
+		When I submit user name "Majd" and password "m" and should enter to installer page
 		Then I should be logged in to installer page
 
 	Scenario: Successful Tenant Login
