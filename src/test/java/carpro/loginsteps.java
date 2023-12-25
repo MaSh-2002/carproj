@@ -22,7 +22,7 @@ public class loginsteps {
         // Implement the logic to submit the username and password and verify entry to the admin pag
         // You can use your existing `User` class to perform the login
         // For example:
-        check1 = user.login(username, password);
+        check1 = user.login(username, password,1);
     }
    
 
@@ -35,7 +35,7 @@ public class loginsteps {
 
     @When("I submit user name {string} and password {string} and should enter to installer page")
     public void i_submit_user_name_and_password_and_should_enter_to_installer_page(String username, String password) {
-        check2 = user.login(username, password);
+        check2 = user.login(username, password,1);
     }
 
     @Then("I should be logged in to installer page")
@@ -46,7 +46,7 @@ public class loginsteps {
 
     @When("I submit user name {string} and password {string} and should enter to tenant page")
     public void i_submit_user_name_and_password_and_should_enter_to_tenant_page(String username, String password) {
-        check3 = user.login(username, password);
+        check3 = user.login(username, password,1);
     }
 
     @Then("I should be logged in to tenant page")
@@ -56,7 +56,7 @@ public class loginsteps {
     }
     @When("I submit the username <invalid_username> and password <invalid_password>")
     public void i_submit_the_username_invalid_username_and_password_invalid_password(String username,String password) {
-    	check4=user.login(username,password);
+    	check4=user.login(username,password,1);
     	
     }
   
