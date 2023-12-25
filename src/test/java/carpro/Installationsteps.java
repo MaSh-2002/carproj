@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 public class Installationsteps {
     private Pcatalog catalog = new Pcatalog();
     private Installer installer = new Installer();
-private product product =new product("wheel", "Exterior", 50, 1);
+
     @Given("the user in  the product details page")
     public void the_user_in_the_product_details_page() {
     	System.out.println("User is on the product details page.");
@@ -43,8 +43,7 @@ private product product =new product("wheel", "Exterior", 50, 1);
     
     @When("the user selects a product for installation")
     public void whenUserSelectsProductForInstallation() {
-    	
-      
+        catalog.veiwCatalogs();
         System.out.println("User selects a product for installation.");
     }
 
@@ -56,13 +55,12 @@ private product product =new product("wheel", "Exterior", 50, 1);
     @When("the user chooses an available date and time")
     public void whenUserChoosesAvailableDateAndTime() {
         System.out.println("User chooses an available date and time.");
-        catalog.buy(product,"2022","2023-12-12/12:12",1);
     }
 
     @Then("the system should confirm the appointment and provide relevant details")
     public void thenSystemShouldConfirmAppointmentAndProvideDetails() {
-    	 assertTrue(catalog.buycheck);
-    	
-       
+        installer.confirmAppointment();
+        assertTrue(installer.isAppointmentConfirmed());
+        assertTrue(installer.areRelevantDetailsProvided());
     }
 }
