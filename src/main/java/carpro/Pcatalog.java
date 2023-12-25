@@ -15,6 +15,7 @@ public class Pcatalog {
 	public static int pagenum;
 	public static int search = 0;
 	public  static List<Order> orders = new ArrayList() ;
+	public   static boolean buycheck=false;
 
 	private  static List<Category> categories = new ArrayList() {{
 		add(new Category("Exterior"));
@@ -191,7 +192,7 @@ public class Pcatalog {
 	            int si = sc.nextInt();
 
 	            if (si == 1) {
-	                buy(product);
+	                buy(product,null,null,0);
 	            } else if (si == 2) {
 	                System.out.println("Returning to main menu...");
 	                main.mainMenu();  // Go back to the main menu
@@ -251,7 +252,7 @@ if(i==0){
 	        String input = scanner.nextLine().trim();
 
 	        if ("buy".equalsIgnoreCase(input)) {
-	            buy(products.get(0)); // Replace with the actual product you want to buy
+	            buy(products.get(0),null,null,0); // Replace with the actual product you want to buy
 	        } else if ("back".equalsIgnoreCase(input)) {
 	            veiwCatalogs();
 	        } else {
@@ -261,18 +262,26 @@ if(i==0){
 	        }
 	    }
 	}
-	public static void buy(product product) {
-	    Scanner scanner = new Scanner(System.in);
-
+	public static void buy(product product,String modle, String date,int i) {
+	 
+if(i==0){
+	   Scanner scanner = new Scanner(System.in);
 	    logger.info("Enter your car model");
 	    String model = scanner.nextLine();
+}else{
+	model=modle;
+}
 	    int f = 2;
 
 	    while (f == 0 || f == 2) {
+		     String userInput;
+		    if(i==0){
 	        logger.info("Enter the installation date you want (and we will tell you if it's available) ");
 	        System.out.print("Enter the date and time (YYYY-MM-DD/H:mm): ");
-	        String userInput = scanner.nextLine();
-
+	         userInput = scanner.nextLine();
+		    }else {
+			userInput=date;    
+		    }
 	        for (Order order1 : orders) {
 	            if (userInput.equalsIgnoreCase(order1.getdateTime1())) {
 	                System.out.println("The selected date is not available. Please choose another date.");
@@ -285,6 +294,8 @@ if(i==0){
 	            Order order = new Order(model, userInput, product.name, product.price);
 	            orders.add(order);
 	            System.out.println("The order has been accepted.");
+			     		buycheck=true;
+
 
 	            // After the purchase, provide options to the customer
 	            System.out.println("Options:");
