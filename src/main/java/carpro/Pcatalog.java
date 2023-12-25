@@ -119,7 +119,7 @@ public class Pcatalog {
 	    }
 
 	    // Call veiwproducts with the validated input
-	    veiwproducts(s);
+	    veiwproducts(s,0);
 
 	    // Loop for entering product names
 	    boolean continueEnteringProducts = true;
@@ -130,7 +130,7 @@ public class Pcatalog {
 	        if ("exit".equalsIgnoreCase(productName)) {
 	            continueEnteringProducts = false;
 	        } else {
-	            veiwdetails(productName);
+	            veiwdetails(productName,0);
 
 	            // Break the loop if returning to the main menu or profile
 	            if (pagenum == 1 || pagenum == 3) {
@@ -148,7 +148,7 @@ public class Pcatalog {
 	}
 	
 	
-	public static void veiwproducts(int id) {
+	public static void veiwproducts(int id,int i) {
 	    pagenum = 2;
 	    for (product product : products) {
 	        if (product.typeid == id) {
@@ -156,6 +156,8 @@ public class Pcatalog {
 	        }
 	    }
 
+
+	if(i==0){	
 	    // Get user input for the product name
 	    System.out.print("Enter product name (or type '0' to return to catalogs): ");
 	    Scanner scanner = new Scanner(System.in);
@@ -164,11 +166,15 @@ public class Pcatalog {
 	    if ("0".equals(productName)) {
 	        veiwCatalogs();  // Return to catalogs
 	    } else {
-	        veiwdetails(productName);
+	        veiwdetails(productName,0);
 	    }
+
+
+	}
+		
 	}
 	
-	public static void veiwdetails(String id) {
+	public static void veiwdetails(String id, int i) {
 	    pagenum = 3;
 	    boolean productFound = false;
 
@@ -177,6 +183,8 @@ public class Pcatalog {
 	            System.out.println(product.name);
 	            System.out.println(product.price + "$");
 	            System.out.println(product.type);
+
+			if(i==0){
 	            System.out.println("Enter 1 if you want to buy this product ");
 	            System.out.println("Enter 2 to return to the main menu ");
 	            Scanner sc = new Scanner(System.in);
@@ -196,7 +204,11 @@ public class Pcatalog {
 
 	            productFound = true;
 	            break;
+
+		}
 	        }
+
+		    
 	    }
 
 	    if (!productFound) {
