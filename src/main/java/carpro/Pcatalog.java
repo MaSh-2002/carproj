@@ -177,16 +177,21 @@ public class Pcatalog {
 	
 	public static void veiwdetails(String id, int i) {
 	    pagenum = 3;
-	    boolean productFound = false;
+	    boolean productFound1,productFound = false;
 
+		
 	    for (product product : products) {
 	        if (id.equals(product.name)) {
 	            System.out.println(product.name);
 	            System.out.println(product.price + "$");
 	            System.out.println(product.type);
+						  productFound1 = true;
 
-			if(i==0){
-	            System.out.println("Enter 1 if you want to buy this product ");
+		}}
+		if (i==0){
+		for (product product : products) {
+	        if (id.equals(product.name)) {
+	           System.out.println("Enter 1 if you want to buy this product ");
 	            System.out.println("Enter 2 to return to the main menu ");
 	            Scanner sc = new Scanner(System.in);
 	            int si = sc.nextInt();
@@ -202,20 +207,18 @@ public class Pcatalog {
 	                veiwCatalogs();
 	                return;
 	            }
-
-	            productFound = true;
+			  productFound = true;
 	            break;
+		}}
+	            
 
-		}
-	        }
+	}
 
-		    
-	    }
-if(i==0){
-	    if (!productFound) {
+		
+	    if (!productFound1) {
 	        System.out.println("Product not found.");
 	    }
-	}
+	
 	}
 	public int getPagenum() {
 
