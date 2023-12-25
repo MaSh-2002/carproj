@@ -263,9 +263,9 @@ if(i==0){
 	    }
 	}
 	public static void buy(product product,String modle, String date,int i) {
-	 
+		   Scanner scanner = new Scanner(System.in);
+ 
 if(i==0){
-	   Scanner scanner = new Scanner(System.in);
 	    logger.info("Enter your car model");
 	    String model = scanner.nextLine();
 }else{
