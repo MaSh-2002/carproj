@@ -68,7 +68,7 @@ public void the_user_go_to_srarch_page() {
 
 @When("the user enters a search query")
 public void the_user_enters_a_search_query() {
-	  g.searchForProduct("wheel");
+	  g.searchForProduct("wheel",1);
 }
 
 @Then("the system should display relevant products matching the search query")
