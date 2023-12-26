@@ -98,7 +98,7 @@ public class Pcatalog {
     }
 	public Pcatalog() {
 	
-
+//comment
 	}
 	
 	public static boolean addCategory(String name) {
