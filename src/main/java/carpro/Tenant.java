@@ -98,6 +98,35 @@ public class Tenant {
 			  public   boolean flageUpdatePhone = false;
 			  public    boolean flageUpdateBank = false;
 			  public  boolean flageUpdateEmail  = false;
+			  public void setnewPhoneNumber(String newPhoneNumber ) {
+				    this.newPhoneNumber  = newPhoneNumber ;
+				  }
+
+				  public String getnewPhoneNumber() {
+				    return newPhoneNumber;
+				  }
+				  public void setnewBankCard(String newBankCard) {
+					    this.newBankCard  = newBankCard ;
+					  }
+
+					  public String getnewBankCard() {
+					    return newBankCard;
+					  }
+					  
+					  public void setnewEmail(String newEmail) {
+						    this.newEmail  = newEmail;
+						  }
+
+						  public String getnewEmail() {
+						    return newEmail;
+						  }
+						  public void setnewPassword(String newPassword) {
+							    this.newPassword =newPassword;
+							  }
+
+							  public String getnewPassword() {
+							    return newPassword;
+							  }
 			  public void viewProfile() {
 			
 				    logger.info("Viewing customer profile...");
@@ -193,4 +222,5 @@ public class Tenant {
 				        cat.veiwCatalogs();
 				    }
 				}
+				
 }
