@@ -2,7 +2,7 @@ package carpro;
 
 public class product {
 	
-	public static int idSequence = 0;
+	public static final int idSequence = 0;
 	   
 	public  String name;
     public  String type;
