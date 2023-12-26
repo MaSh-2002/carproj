@@ -6,8 +6,8 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "use_cases", // Path to your feature files
-    glue = "carpro" // Package where your step definitions are located
+    features = "use_cases", 
+    glue = "carpro" 
 )
 public class Testing {
 }

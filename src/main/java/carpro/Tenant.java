@@ -110,14 +110,14 @@ public class Tenant {
 				    logger.info("2 - Back to Main Menu");
 
 				    int choice = inputscanner.nextInt();
-				    inputscanner.nextLine(); // Consume newline character
+				    inputscanner.nextLine();
 
 				    switch (choice) {
 				        case 1:
 				            updateProfileInformation();
 				            break;
 				        case 2:
-				            // Go back to the main menu
+				         
 				            tenantPage();
 				            break;
 				        default:
@@ -134,7 +134,7 @@ public class Tenant {
 				    logger.info("5 - Back to Profile Menu");
 
 				    profileChoice = inputscanner.nextInt();
-				    inputscanner.nextLine(); // Consume newline character
+				    inputscanner.nextLine(); 
 
 				    switch (profileChoice) {
 				        case 1:
@@ -166,7 +166,7 @@ public class Tenant {
 				            flageUpdatePassword = true;
 				            break;
 				        case 5:
-				            // Back to the profile menu
+				           
 				            break;
 				        default:
 				            logger.info("INVALID_LABEL");

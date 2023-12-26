@@ -56,12 +56,12 @@ private product product =new product("wheel", "Exterior", 50, 1);
     @When("the user chooses an available date and time")
     public void whenUserChoosesAvailableDateAndTime() {
         System.out.println("User chooses an available date and time.");
-       // catalog.buy(product,"2022","2023-12-12/12:12",1);
+     
     }
 
     @Then("the system should confirm the appointment and provide relevant details")
     public void thenSystemShouldConfirmAppointmentAndProvideDetails() {
-    	// assertTrue(catalog.buycheck);
+    	
     	assertTrue(true);
        
     }

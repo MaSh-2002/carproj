@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class Pcatalog {
 	Tenant t= new Tenant();
-	private boolean shouldPromptProductName = true; // Flag to control prompting for product name
+	private boolean shouldPromptProductName = true; 
 	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
 	public   static boolean buycheck=false;
 
@@ -47,7 +47,7 @@ public class Pcatalog {
         return categories;
     }
 	public Pcatalog() {
-		// TODO Auto-generated constructor stub
+	
 		pagenum = 1;
 	}
 	
@@ -78,12 +78,12 @@ public class Pcatalog {
 
 	    System.out.println("*** To search for a product enter 's'");
 
-	    // Display categories
+	   
 	    for (Category category : categories) {
 	        System.out.println(category.toString());
 	    }
 
-	    // Get user input
+	   
 	    int s = 0;
 	    boolean validInput = false;
 	    Scanner scanner = new Scanner(System.in);
@@ -103,7 +103,7 @@ public class Pcatalog {
 	                s = Integer.parseInt(input);
 	                validInput = true;
 	            } catch (NumberFormatException e) {
-	                // If not a number, check if it matches a category name
+	               
 	                for (Category category : categories) {
 	                    if (category.getName().equalsIgnoreCase(input)) {
 	                        s = category.getId();
@@ -119,10 +119,9 @@ public class Pcatalog {
 	        }
 	    }
 
-	    // Call veiwproducts with the validated input
 	    veiwproducts(s,0);
 
-	    // Loop for entering product names
+	    
 	    boolean continueEnteringProducts = true;
 	    while (continueEnteringProducts) {
 	        System.out.print("Enter product name (or type 'exit' to finish entering products): ");
@@ -133,18 +132,18 @@ public class Pcatalog {
 	        } else {
 	            veiwdetails(productName,0);
 
-	            // Break the loop if returning to the main menu or profile
+	           
 	            if (pagenum == 1 || pagenum == 3) {
 	                break;
 	            }
 	        }
 	    }
 	    Tenant t= new Tenant();
-	    // Check if returning to the main menu or profile view
+	   
 	    if (pagenum == 2) {
 	        veiwCatalogs();
 	    } else if (pagenum == 1) {
-	        t.viewProfile(); // Assuming there's a method named viewProfile for displaying the user's profile
+	        t.viewProfile(); 
 	    }
 	}
 	
@@ -159,13 +158,13 @@ public class Pcatalog {
 
 
 	if(i==0){	
-	    // Get user input for the product name
+	   
 	    System.out.print("Enter product name (or type '0' to return to catalogs): ");
 	    Scanner scanner = new Scanner(System.in);
 	    String productName = scanner.nextLine().trim();
 
 	    if ("0".equals(productName)) {
-	        veiwCatalogs();  // Return to catalogs
+	        veiwCatalogs(); 
 	    } else {
 	        veiwdetails(productName,0);
 	    }
@@ -239,24 +238,24 @@ if(i==0){
 	            System.out.println(product.price);
 	            System.out.println(product.type);
 
-	            // Set a flag indicating that the product is found
+	          
 	            productFound = true;
 	            break;
 	        }
 	    }
 if(i==0){
 	    if (productFound) {
-	        // If the product is found, prompt the user for further actions
+	        
 	        System.out.print("Enter 'buy' to purchase the product, or 'back' to return to categories: ");
 	        Scanner scanner = new Scanner(System.in);
 	        String input = scanner.nextLine().trim();
 
 	        if ("buy".equalsIgnoreCase(input)) {
-	            buy(products.get(0),null,null,0); // Replace with the actual product you want to buy
+	            buy(products.get(0),null,null,0);
 	        } else if ("back".equalsIgnoreCase(input)) {
 	            veiwCatalogs();
 	        } else {
-	            // Handle invalid input if needed
+	            
 	            System.out.println("Invalid input. Returning to categories.");
 	            veiwCatalogs();
 	        }
@@ -293,7 +292,7 @@ String model;
 	            System.out.println("The order has been accepted.");
 			    buycheck=true;
 if(i==0){
-	            // After the purchase, provide options to the customer
+	           
 	            System.out.println("Options:");
 	            System.out.println("1. Return to catalog");
 	            System.out.println("2. Go back to main menu");
@@ -302,10 +301,10 @@ if(i==0){
 	            if (choice == 1) {
 	                veiwCatalogs();
 	            } else if (choice == 2) {
-	                main.start();  // Go back to the main page
+	                main.start();  
 	            } else {
 	                System.out.println("Invalid input. Returning to main menu...");
-	                main.start();  // Go back to the main page for any other input
+	                main.start();  
 	            }
 		}
 	        }
@@ -315,41 +314,7 @@ if(i==0){
 		
 		
 		
-	/*
-	    logger.info("Enter your car model");
-	    Scanner s= new Scanner(System.in);
-		String model = s.nextLine();
-	       int f=1;
 
-		while(f==1) {
-	    logger.info("Enter the installation date you want (and we will tell tou if its available) ");
-	    Scanner c= new Scanner(System.in);
-	    System.out.print("Enter the date and time (YYYY-MM-DDTHH:mm:ss): ");
-        String userInput = c.nextLine();
-
-        // Define the DateTimeFormatter for the expected format
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-
-        // Parsing user input to a LocalDateTime object
-        LocalDateTime enteredDateTime = LocalDateTime.parse(userInput, formatter);
-        for (Order order1 : orders) {
-        	int comparisonResult = order1.getdateTime1().compareTo(enteredDateTime);
-
-if(comparisonResult==0) {
-	 Order order =new Order(model,enteredDateTime,product.name,product.price);
-		orders.add(order);
-f=0;
-	
-        }
-        }
-        if(f==1)System.out.print("not allowed date ");
-
-	}
-        
-	//	InstallationDetails installationDetails= new InstallationDetails (model,data);
-		//product.setInstallationDetails(installationDetails);
-		*/
-		
 		
 	
 
@@ -367,8 +332,7 @@ f=0;
 
 	}
 		
-		return isRemoved;  // Removes the specified object
-
+		return isRemoved;  
 	}
 	
 
@@ -387,7 +351,7 @@ if(category.getId()==id)	{
 	}
 
 }
-	return isRemoved;  // Removes the specified object
+	return isRemoved;  
 
 }
 

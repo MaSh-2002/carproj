@@ -17,7 +17,7 @@ public class product {
 	}
 	private InstallationDetails installationDetails;
 
-    // Getter and setter for installationDetails
+   
     public InstallationDetails getInstallationDetails() {
         return installationDetails;
     }

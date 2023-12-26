@@ -47,7 +47,7 @@ public void the_user_is_on_the_products_page() {
 
 @When("the user selects a specific product")
 public void the_user_selects_a_specific_product() {
-    g.veiwdetails("wheel",1); // Replace "wheel" with a valid product name
+    g.veiwdetails("wheel",1); 
 
 }
 

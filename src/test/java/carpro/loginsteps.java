@@ -19,17 +19,14 @@ public class loginsteps {
     }
     @When("I submit user name {string} and password {string} and should enter to admin page")
     public void i_submit_user_name_and_password_and_should_enter_to_admin_page(String username, String password) {
-        // Implement the logic to submit the username and password and verify entry to the admin pag
-        // You can use your existing `User` class to perform the login
-        // For example:
+        
         check1 = user.login(username, password,1);
     }
    
 
     @Then("I should be logged in to admin page")
     public void i_should_be_logged_in_to_admin_page() {
-        // Implement code to verify that the user is logged in as an admin
-        // You can use assertions here to check the expected behavior
+        
     	assertTrue(check1);
     }
 
@@ -40,8 +37,7 @@ public class loginsteps {
 
     @Then("I should be logged in to installer page")
     public void i_should_be_logged_in_to_installer_page() {
-        // Implement code to verify that the user is logged in as an installer
-    	//assertTrue(check2);
+      
             	assertTrue(true);
     }
 
@@ -52,7 +48,7 @@ public class loginsteps {
 
     @Then("I should be logged in to tenant page")
     public void i_should_be_logged_in_to_tenant_page() {
-        // Implement code to verify that the user is logged in as a tenant
+        
     	assertTrue(check3);
     }
     @When("I submit the username <invalid_username> and password <invalid_password>")

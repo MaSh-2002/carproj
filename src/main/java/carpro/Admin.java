@@ -8,7 +8,7 @@ import java.util.*;
 public class Admin {
 
 	private static final Logger logger = Logger.getLogger(Admin.class.getName());	
-	Pcatalog catalog;
+	
 	
 	public Admin() {
 		
@@ -95,9 +95,9 @@ public void displayDashboard(List<User> usercont) {
 				break;
 		}}
 }
+private static Pcatalog catalog = new Pcatalog();
 
-
-public void printcatalogs() {// print catagories for admin
+public void printcatalogs() {
 	List<Category> categories= catalog.getcategories();
 	
 	List<product> products = catalog.getproducts();
