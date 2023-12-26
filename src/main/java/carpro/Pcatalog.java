@@ -238,7 +238,7 @@ public class Pcatalog {
 	    for (product product : products) {
 	        if (id.equals(product.name)) {
 	        	 logger.info(product.name);
-	        	 logger.info(product.price + "$");
+	        	 logger.info(String.format("%d$", product.price));
 	        	 logger.info(product.type);
 
 			if(i==0){
