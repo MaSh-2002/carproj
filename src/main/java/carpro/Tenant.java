@@ -90,16 +90,16 @@ public class Tenant {
 			  public void setPassword(String password) {
 			    this.password = password;
 			  }
-			  public  String newPhoneNumber;
-			  public  String newBankCard;
-			  public  String newEmail;
-			  public  String newPassword;
+			  private  String newPhoneNumber;
+			  private   String newBankCard;
+			  private   String newEmail;
+			  private   String newPassword;
 			  public   boolean flageUpdatePassword = false;
 			  public   boolean flageUpdatePhone = false;
 			  public    boolean flageUpdateBank = false;
 			  public  boolean flageUpdateEmail  = false;
 			  public void viewProfile() {
-				  int profileChoice = 0;
+			
 				    logger.info("Viewing customer profile...");
 				    logger.info(() -> "Name: " + name);
 				    logger.info(() -> "Phone Number: " + phoneNumber);
