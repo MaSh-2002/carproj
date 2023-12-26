@@ -101,21 +101,31 @@ private String password = "Default";
 
 
 	
-	private static ArrayList<User> usercont= new ArrayList<>();
-	public boolean test;
-	
-	
-public boolean login (String userna, String pass,int i) {
-	 usercont.add(new User("shahd","258","sh@gmail.com",UserType.ADMIN));
-	 usercont.add(new User("farah","3224","fa@gmail.com",UserType.TENANT));
-	 usercont.add(new User("haya","563","sh@gmail.com",UserType.TENANT));
-	 usercont.add(new User("jaber","123","ja@gmail.com",UserType.TENANT));
-	 usercont.add(new User("maha","000","sshahdyyaseen66@gmail.com",UserType.TENANT));
-	 usercont.add(new User("Majd","m","ma@gmail.com",UserType.INSTALLER));
+	private static final boolean DEFAULT_TEST_VALUE = false;
 
-	test= check(userna, pass,i);
-	return test;
-}
+	private static ArrayList<User> usercont = new ArrayList<>();
+	private boolean test = DEFAULT_TEST_VALUE;
+
+	private boolean isTest() {
+	    return test;
+	}
+
+	
+	private void setTest(boolean test) {
+	    this.test = test;
+	}
+
+	public boolean login(String userna, String pass, int i) {
+	    usercont.add(new User("shahd", "258", "sh@gmail.com", UserType.ADMIN));
+	    usercont.add(new User("farah", "3224", "fa@gmail.com", UserType.TENANT));
+	    usercont.add(new User("haya", "563", "sh@gmail.com", UserType.TENANT));
+	    usercont.add(new User("jaber", "123", "ja@gmail.com", UserType.TENANT));
+	    usercont.add(new User("maha", "000", "sshahdyyaseen66@gmail.com", UserType.TENANT));
+	    usercont.add(new User("Majd", "m", "ma@gmail.com", UserType.INSTALLER));
+
+	    setTest(check(userna, pass, i));
+	    return isTest();
+	}
 
 	public boolean check(String username, String password, int i) {
 		logger.info(username);
