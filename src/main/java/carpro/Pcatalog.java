@@ -115,14 +115,10 @@ public class Pcatalog {
 			}
 		}
 		
-		Product myProduct = null; 
+	
 
-		if (myCategor != null) {
-		    myProduct = new Product(name, myCategor.getName(), price, categoryId);
-		} else {
-		    
-		    System.out.println("Error: myCategor is null. Setting a default category.");
-		   		}
+		Product myProduct = new Product(name, myCategor.getName(), price, categoryId);
+		added=products.add(myProduct);
 		return added;
 	}
 
