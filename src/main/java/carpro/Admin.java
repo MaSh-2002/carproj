@@ -34,71 +34,51 @@ public void displayDashboard(List<User> usercont) {
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
 		
-		switch (choice) {
-			case 1:
-				Pcatalog.veiwCatalogs();
-				break;
-				
-				
-				
-			case 2:
-				logger.info("edit catagory");
-				logger.info("1 - add");
-				logger.info("2 - delete");
-				int choice2 = scanner.nextInt();
-				
-				switch (choice2) {
-			    case 1:
-			        logger.info("Enter category name:");
-			        Scanner sc = new Scanner(System.in);
-			        String s = sc.nextLine();
-			        Pcatalog.addCategory(s);
-			        break;
-			    case 2:
-			        logger.info("Enter category numbers:");
-			        Scanner scr = new Scanner(System.in);
-			        int st = scr.nextInt();
-			        Pcatalog.deletecatalogs(st);
-			        break;
-			    default:
-			        // This will be executed if choice2 doesn't match any case
-			        logger.info("Invalid choice. Please choose a valid option.");
-			        break;
-			}
-			case 3:
-				logger.info("edit product");
-				logger.info("1 - add");
-				logger.info("2 - delete");
-				int choice3 = scanner.nextInt();
-				
-				switch (choice3) {
-			    case 1:
-			        logger.info("Enter product name:");
-			        int price = scanner.nextInt(); 
-			        logger.info("Enter product price:");
-			        String name = scanner.nextLine();
-			        logger.info("Enter category number:");
-			        int num = scanner.nextInt(); 
-			        Pcatalog.addProduct(price, name, num);
-			        break;
-			    case 2:
-			     
-			        break;
-			    default:
-			       
-			        logger.info("Invalid choice. Please choose a valid option.");
-			      
-			        break;
-			}
-			case 4:
-				veiwCustomer(usercont);
-				break;
+		if (choice == 1) {
+		    Pcatalog.veiwCatalogs();
+		} else if (choice == 2) {
+		    logger.info("edit category");
+		    logger.info("1 - add");
+		    logger.info("2 - delete");
+		    int choice2 = scanner.nextInt();
 
-			default:
-				logger.info("Invalid choice");
-				displayDashboard(usercont);
-				break;
-		}}
+		    if (choice2 == 1) {
+		        logger.info("Enter category name:");
+		        String s = scanner.nextLine();
+		        Pcatalog.addCategory(s);
+		    } else if (choice2 == 2) {
+		        logger.info("Enter category number:");
+		        int st = scanner.nextInt();
+		        Pcatalog.deletecatalogs(st);
+		    } else {
+		        logger.info("Invalid choice. Please choose a valid option.");
+		    }
+		} else if (choice == 3) {
+		    logger.info("edit product");
+		    logger.info("1 - add");
+		    logger.info("2 - delete");
+		    int choice3 = scanner.nextInt();
+
+		    if (choice3 == 1) {
+		        logger.info("Enter product name:");
+		        int price = scanner.nextInt();
+		        logger.info("Enter product price:");
+		        String name = scanner.nextLine();
+		        logger.info("Enter category number:");
+		        int num = scanner.nextInt();
+		        Pcatalog.addProduct(price, name, num);
+		    } else if (choice3 == 2) {
+		        // Handle case 2 for editing product
+		    } else {
+		        logger.info("Invalid choice. Please choose a valid option.");
+		    }
+		} else if (choice == 4) {
+		    veiwCustomer(usercont);
+		} else {
+		    logger.info("Invalid choice");
+		    displayDashboard(usercont);
+		}
+		}
 }
 
 
