@@ -304,29 +304,14 @@ public class Pcatalog {
 	}
 	public static void buy(Product product, String modle, String date, int i) {
 	    Scanner scanner = new Scanner(System.in);
-	    String model;
-
-	    if (i == 0) {
-	        logger.info("Enter your car model");
-	        model = scanner.nextLine();
-	    } else {
-	        model = modle;
-	    }
+	    String model = getModel(i, modle);
 
 	    int f = 2;
 
 	    while (f == 0 || f == 2) {
-	        String userInput;
+	        String userInput = getDateInput(i, date);
 
-	        if (i == 0) {
-	            logger.info("Enter the installation date you want (and we will tell you if it's available) ");
-	            logger.info("Enter the date and time (YYYY-MM-DD/H:mm): ");
-	            userInput = scanner.nextLine();
-	        } else {
-	            userInput = date;
-	        }
-
-	        boolean dateAvailable = orders.stream().noneMatch(order1 -> userInput.equalsIgnoreCase(order1.getdateTime1()));
+	        boolean dateAvailable = isDateAvailable(userInput);
 
 	        if (!dateAvailable) {
 	            logger.info("The selected date is not available. Please choose another date.");
@@ -334,27 +319,59 @@ public class Pcatalog {
 	        }
 
 	        if (f == 2) {
-	            Order order = new Order(model, userInput, product.getName(), product.getPrice());
-	            orders.add(order);
-	            logger.info("The order has been accepted.");
+	            processOrder(model, userInput, product);
 	            buycheck = true;
 
 	            if (i == 0) {
-	                logger.info("Options:");
-	                logger.info("1. Return to catalog");
-	                logger.info("2. Go back to main menu");
-	                int choice = scanner.nextInt();
-
-	                if (choice == 1) {
-	                    veiwCatalogs();
-	                } else if (choice == 2) {
-	                    Main.start();
-	                } else {
-	                    logger.info("Invalid input. Returning to main menu...");
-	                    Main.start();
-	                }
+	                handleUserOptions();
 	            }
 	        }
+	    }
+	}
+
+	private static String getModel(int i, String modle) {
+	    if (i == 0) {
+	        logger.info("Enter your car model");
+	        return new Scanner(System.in).nextLine();
+	    } else {
+	        return modle;
+	    }
+	}
+
+	private static String getDateInput(int i, String date) {
+	    if (i == 0) {
+	        logger.info("Enter the installation date you want (and we will tell you if it's available) ");
+	        logger.info("Enter the date and time (YYYY-MM-DD/H:mm): ");
+	        return new Scanner(System.in).nextLine();
+	    } else {
+	        return date;
+	    }
+	}
+
+	private static boolean isDateAvailable(String userInput) {
+	    return orders.stream().noneMatch(order1 -> userInput.equalsIgnoreCase(order1.getdateTime1()));
+	}
+
+	private static void processOrder(String model, String userInput, Product product) {
+	    Order order = new Order(model, userInput, product.getName(), product.getPrice());
+	    orders.add(order);
+	    logger.info("The order has been accepted.");
+	}
+
+	private static void handleUserOptions() {
+	    logger.info("Options:");
+	    logger.info("1. Return to catalog");
+	    logger.info("2. Go back to the main menu");
+
+	    int choice = new Scanner(System.in).nextInt();
+
+	    if (choice == 1) {
+	        veiwCatalogs();
+	    } else if (choice == 2) {
+	        Main.start();
+	    } else {
+	        logger.info("Invalid input. Returning to the main menu...");
+	        Main.start();
 	    }
 	}
 		
