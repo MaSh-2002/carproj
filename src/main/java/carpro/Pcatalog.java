@@ -122,14 +122,23 @@ public class Pcatalog {
 
 	
 	public static void veiwCatalogs() {
+	    displayCategories();
+	    int categoryId = getUserInputForCategory();
+	    veiwproducts(categoryId, 0);
+	    processProductInput();
+	}
+
+	private static void displayCategories() {
 	    pagenum = 1;
 	    logger.info("*** To search for a product enter 's'");
-
+	    
 	    for (Category category : categories) {
 	        logger.info(category.toString());
 	    }
+	}
 
-	    int s = 0;
+	private static int getUserInputForCategory() {
+	    int categoryId = 0;
 	    boolean validInput = false;
 	    Scanner scanner = new Scanner(System.in);
 
@@ -139,31 +148,34 @@ public class Pcatalog {
 
 	        if (input.equals("s")) {
 	            logger.info("Enter product name");
-	            Scanner sc = new Scanner(System.in);
-	            String in = sc.nextLine();
-	            searchForProduct(in, 0);
+	            String productName = scanner.nextLine();
+	            searchForProduct(productName, 0);
 	        } else {
-	            try {
-	                s = Integer.parseInt(input);
-	                validInput = true;
-	            } catch (NumberFormatException e) {
-	                for (Category category : categories) {
-	                    if (category.getName().equalsIgnoreCase(input)) {
-	                        s = category.getId();
-	                        validInput = true;
-	                        break;
-	                    }
-	                }
-
-	                if (!validInput) {
-	                    logger.info("Invalid input. Please enter a valid category name or ID.");
-	                }
-	            }
+	            categoryId = parseCategoryId(input);
+	            validInput = (categoryId != 0);
 	        }
 	    }
-	    veiwproducts(s, 0);
 
+	    return categoryId;
+	}
+
+	private static int parseCategoryId(String input) {
+	    try {
+	        return Integer.parseInt(input);
+	    } catch (NumberFormatException e) {
+	        for (Category category : categories) {
+	            if (category.getName().equalsIgnoreCase(input)) {
+	                return category.getId();
+	            }
+	        }
+	        logger.info("Invalid input. Please enter a valid category name or ID.");
+	        return 0;
+	    }
+	}
+
+	private static void processProductInput() {
 	    boolean continueEnteringProducts = true;
+	    Scanner scanner = new Scanner(System.in);
 
 	    while (continueEnteringProducts) {
 	        logger.info("Enter product name (or type 'exit' to finish entering products): ");
@@ -179,8 +191,8 @@ public class Pcatalog {
 	            }
 	        }
 	    }
-	    Tenant t = new Tenant();
 
+	    Tenant t = new Tenant();
 	    if (pagenum == 2) {
 	        veiwCatalogs();
 	    } else if (pagenum == 1) {
@@ -294,7 +306,7 @@ public class Pcatalog {
 	    }
 	}
 	public static void buy(Product product, String modle, String date, int i) {
-	    Scanner scanner = new Scanner(System.in);
+	  
 	    String model = getModel(i, modle);
 
 	    int f = 2;
