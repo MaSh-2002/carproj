@@ -13,8 +13,26 @@ public class Pcatalog {
 	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
 	public   static boolean buycheck=false;
 
-	public static int pagenum;
-	public static int search = 0;
+	private static int pagenum = 0;
+
+ 
+    public static int getPagenum1() {
+        return pagenum;
+    }
+
+    static void setPagenum1(int pagenum) {
+    	Pcatalog .pagenum = pagenum;
+    }
+	private static int search = 0;
+
+   
+    public static int getSearch() {
+        return search;
+    }
+
+    static void setSearch(int search) {
+    	Pcatalog.search = search;
+    }
 	public  static List<Order> orders = new ArrayList() ;
 
 	private  static List<Category> categories = new ArrayList() {{

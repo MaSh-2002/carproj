@@ -76,7 +76,7 @@ public void the_user_enters_a_search_query() {
 
 @Then("the system should display relevant products matching the search query")
 public void the_system_should_display_relevant_products_matching_the_search_query() {
-	   assertTrue(g.search==1);
+	   assertTrue(g.getSearch()==1);
 }
 
 
