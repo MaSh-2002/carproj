@@ -304,24 +304,17 @@ if(i==0){
 	        }
 	    }
 	    
-if(i==0){
-	    if (productFound) {
-	        
-	    	 logger.info("Enter 'buy' to purchase the product, or 'back' to return to categories: ");
+	    if (i == 0 && productFound) {
+	        logger.info("Enter 'buy' to purchase the product, or 'back' to return to categories: ");
 	        Scanner scanner = new Scanner(System.in);
 	        String input = scanner.nextLine().trim();
 
 	        if ("buy".equalsIgnoreCase(input)) {
-	            buy(products.get(0),null,null,0);
+	            buy(products.get(0), null, null, 0);
 	        } else if ("back".equalsIgnoreCase(input)) {
-	            veiwCatalogs();
-	        } else {
-	            
-	        	 logger.info("Invalid input. Returning to categories.");
 	            veiwCatalogs();
 	        }
 	    }
-	}
 	}
 	public static void buy(Product product,String modle, String date,int i) {
 	    Scanner scanner = new Scanner(System.in);
