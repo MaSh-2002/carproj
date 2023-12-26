@@ -12,14 +12,7 @@ public class Pcatalog {
 	
 	   
 
-	    public static List<Category> getCategories1() {
-	        return categories;
-	    }
-
-	    public static List<Product> getProducts1() {
-	        return products;
-	    }
-	
+	    
 	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
 	private static boolean buycheck = false;
 
