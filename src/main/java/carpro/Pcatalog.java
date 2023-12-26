@@ -26,11 +26,11 @@ public class Pcatalog {
 
 
  
-    public static int getPagenum1() {
+    public static int getPagenum() {
         return pagenum;
     }
 
-    static void setPagenum1(int pagenum) {
+    static void setPagenum(int pagenum) {
     	Pcatalog .pagenum = pagenum;
     }
 	private static int search = 0;
@@ -257,16 +257,7 @@ public class Pcatalog {
 	    }
 	
 	private static int pagenum;   
-	public int getPagenum() {
-
-		return pagenum;
-	}
-
-	public void setPagenum(int i) {
-		
-	pagenum=i;
 	
-	}
 
 	public static void searchForProduct(String searchQuery,int i ) {
 	    search = 0;
