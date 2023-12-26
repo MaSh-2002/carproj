@@ -15,11 +15,7 @@ public class Admin {
 		logger.info("Welcome to Admin Dashboard");
 		
 	}
-public void x() {
-		
-	
-		
-	}
+
 public void adminWork() {
 	 logger.info("Welcome");
 }
