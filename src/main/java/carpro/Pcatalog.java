@@ -305,56 +305,61 @@ public class Pcatalog {
 	        }
 	    }
 	}
-	public static void buy(Product product,String modle, String date,int i) {
+	public static void buy(Product product, String modle, String date, int i) {
 	    Scanner scanner = new Scanner(System.in);
-String model;
-		if(i==0){
-	    logger.info("Enter your car model");
-	     model = scanner.nextLine();
-		}else{model=modle;}
+	    String model;
+
+	    if (i == 0) {
+	        logger.info("Enter your car model");
+	        model = scanner.nextLine();
+	    } else {
+	        model = modle;
+	    }
+
 	    int f = 2;
 
 	    while (f == 0 || f == 2) {
- String userInput;
-		    if(i==0){
-	        logger.info("Enter the installation date you want (and we will tell you if it's available) ");
-	        logger.info("Enter the date and time (YYYY-MM-DD/H:mm): ");
-	        userInput = scanner.nextLine();
-		    }else{userInput=date;}
-	        for (Order order1 : orders) {
-	            if (userInput.equalsIgnoreCase(order1.getdateTime1())) {
-	            	 logger.info("The selected date is not available. Please choose another date.");
-	                f = 0;
-	                break;
-	            }
+	        String userInput;
+
+	        if (i == 0) {
+	            logger.info("Enter the installation date you want (and we will tell you if it's available) ");
+	            logger.info("Enter the date and time (YYYY-MM-DD/H:mm): ");
+	            userInput = scanner.nextLine();
+	        } else {
+	            userInput = date;
+	        }
+
+	        boolean dateAvailable = orders.stream().noneMatch(order1 -> userInput.equalsIgnoreCase(order1.getdateTime1()));
+
+	        if (!dateAvailable) {
+	            logger.info("The selected date is not available. Please choose another date.");
+	            f = 0;
 	        }
 
 	        if (f == 2) {
 	            Order order = new Order(model, userInput, product.getName(), product.getPrice());
 	            orders.add(order);
 	            logger.info("The order has been accepted.");
-			    buycheck=true;
-if(i==0){
-	           
-	 logger.info("Options:");
-	 logger.info("1. Return to catalog");
-	 logger.info("2. Go back to main menu");
+	            buycheck = true;
 
-	            int choice = scanner.nextInt();
-	            if (choice == 1) {
-	                veiwCatalogs();
-	            } else if (choice == 2) {
-	                Main.start();  
-	            } else {
-	            	 logger.info("Invalid input. Returning to main menu...");
-	                Main.start();  
+	            if (i == 0) {
+	                logger.info("Options:");
+	                logger.info("1. Return to catalog");
+	                logger.info("2. Go back to main menu");
+	                int choice = scanner.nextInt();
+
+	                if (choice == 1) {
+	                    veiwCatalogs();
+	                } else if (choice == 2) {
+	                    Main.start();
+	                } else {
+	                    logger.info("Invalid input. Returning to main menu...");
+	                    Main.start();
+	                }
 	            }
-		}
 	        }
-		    
 	    }
 	}
-		
 		
 		
 
