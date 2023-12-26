@@ -292,15 +292,20 @@ if(i==0){
 	    for (product product : products) {
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
-	            logger.info(product.name);
-	            logger.info(String.format("Product price: %d", product.price));
-	            logger.info(product.type);
 
-	          
+	            // Log product details only if the product type is not empty
+	            logger.info(product.name);
+
+	            if (!product.type.isEmpty()) {
+	                logger.info(String.format("Product price: %d", product.price));
+	                logger.info(product.type);
+	            }
+
 	            productFound = true;
 	            break;
 	        }
 	    }
+	    
 if(i==0){
 	    if (productFound) {
 	        
