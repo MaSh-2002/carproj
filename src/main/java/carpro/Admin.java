@@ -72,19 +72,24 @@ public void displayDashboard(List<User> usercont) {
 				int choice3 = scanner.nextInt();
 				
 				switch (choice3) {
-					case 1:
-						 logger.info("Enter product name:");
-						int price = scanner.nextInt(); 
-						 logger.info("Enter product price:");
-						String name  =scanner.nextLine();
-						 logger.info("Enter catagory number:");
-						int num = scanner.nextInt(); 
-
-					Pcatalog.addProduct(price, name, num);
-						break;
-					case 2:
-						break;	
-				}
+			    case 1:
+			        logger.info("Enter product name:");
+			        int price = scanner.nextInt(); 
+			        logger.info("Enter product price:");
+			        String name = scanner.nextLine();
+			        logger.info("Enter category number:");
+			        int num = scanner.nextInt(); 
+			        Pcatalog.addProduct(price, name, num);
+			        break;
+			    case 2:
+			     
+			        break;
+			    default:
+			       
+			        logger.info("Invalid choice. Please choose a valid option.");
+			      
+			        break;
+			}
 			case 4:
 				veiwCustomer(usercont);
 				break;
@@ -95,12 +100,11 @@ public void displayDashboard(List<User> usercont) {
 				break;
 		}}
 }
-private static Pcatalog catalog = new Pcatalog();
+
 
 public void printcatalogs() {
-	List<Category> categories= catalog.getcategories();
-	
-	List<product> products = catalog.getproducts();
+	List<Category> categories = Pcatalog.getCategories();
+	List<product> products = Pcatalog.getProducts();
 	
 		
 		for (Category category : categories) {

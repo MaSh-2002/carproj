@@ -9,6 +9,16 @@ import java.util.logging.Logger;
 
 public class Pcatalog {
 	Tenant t= new Tenant();
+	
+	   
+
+	    public static List<Category> getCategories() {
+	        return categories;
+	    }
+
+	    public static List<product> getProducts() {
+	        return products;
+	    }
 	private boolean shouldPromptProductName = true; 
 	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
 	private static boolean buycheck = false;
