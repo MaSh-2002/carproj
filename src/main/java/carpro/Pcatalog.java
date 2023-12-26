@@ -12,11 +12,11 @@ public class Pcatalog {
 	
 	   
 
-	    public static List<Category> getCategories() {
+	    public static List<Category> getCategories1() {
 	        return categories;
 	    }
 
-	    public static List<Product> getProducts() {
+	    public static List<Product> getProducts1() {
 	        return products;
 	    }
 	
@@ -95,12 +95,12 @@ public class Pcatalog {
  
 
 
-	public static List<Product> getProducts1() {
+	public static List<Product> getProducts() {
         return products;
     }
 	
 
-	public static List<Category> getCategories1() {
+	public static List<Category> getCategories() {
         return categories;
     }
 	public Pcatalog() {
@@ -109,10 +109,8 @@ public class Pcatalog {
 	}
 	
 	public static boolean addCategory(String name) {
-		boolean added =true;
-		categories.add(new Category(name));
-	       added =true;
-		return added;
+	    categories.add(new Category(name));
+	    return true;
 	}
 	
 	public static boolean addProduct(int price, String name, int categoryId) {
