@@ -50,15 +50,15 @@ private String password = "Default";
 	    public void setAddress(String newAddress) {
 	        address = newAddress;
 	    }
-	 private String Email = "Default";
+	 private String email = "Default";
 
 	  
 	    public String getEmail() {
-	        return Email;
+	        return email;
 	    }
 
 	    public void setEmail(String newEmail) {
-	        Email = newEmail;
+	        email = newEmail;
 	    }
 	 private String name = "Default";
 
@@ -96,7 +96,7 @@ private String password = "Default";
 		this.username=username;
 		this.password=password;
 		this.type=type;
-		this.Email=email;
+		this.email=email;
 	}
 
 
@@ -145,7 +145,7 @@ private String password = "Default";
 					return true;
 				}
 				else if(user1.getType().equals(UserType.TENANT)) {
-			Tenant tenant = new Tenant(username,user1.Email,user1.password);
+			Tenant tenant = new Tenant(username,user1.email,user1.password);
 			if(i!=1) tenant.tenantPage();
 					return true;
 				}
