@@ -96,11 +96,51 @@ public class Tenant {
 			  private   String newPassword;
 			
 			
+			  private boolean flageUpdateEmail = false;
+
+			
+			public boolean isFlageUpdateEmail() {
+			    return flageUpdateEmail;
+			}
+
+	
+			public void setFlageUpdateEmail(boolean flageUpdateEmail) {
+			    this.flageUpdateEmail = flageUpdateEmail;
+			}
+			  private boolean flageUpdateBank = false;
+
 		
-			  public  boolean flageUpdateEmail  = false;
-			  public  boolean flageUpdateBank  = false;
-			  public  boolean flageUpdatePhone = false;
-			  public  boolean flageUpdatePassword  = false;
+			public boolean isFlageUpdateBank() {
+			    return flageUpdateBank;
+			}
+
+			
+			public void setFlageUpdateBank(boolean flageUpdateBank) {
+			    this.flageUpdateBank = flageUpdateBank;
+			}
+			  private boolean flageUpdatePhone = false;
+
+			
+			public boolean isFlageUpdatePhone() {
+			    return flageUpdatePhone;
+			}
+
+		
+			public void setFlageUpdatePhone(boolean flageUpdatePhone) {
+			    this.flageUpdatePhone = flageUpdatePhone;
+			}
+			  private boolean flageUpdatePassword = false;
+
+			
+			public boolean isFlageUpdatePassword() {
+			    return flageUpdatePassword;
+			}
+
+		
+			public void setFlageUpdatePassword(boolean flageUpdatePassword) {
+			    this.flageUpdatePassword = flageUpdatePassword;
+			}
+
 			  public void setnewPhoneNumber(String newPhoneNumber ) {
 				    this.newPhoneNumber  = newPhoneNumber ;
 				  }
@@ -220,9 +260,7 @@ public class Tenant {
 				        viewProfile();
 
 				    } else if (shoose == 2) {
-
-				        Pcatalog cat = new Pcatalog();
-				        cat.veiwCatalogs();
+				        Pcatalog.veiwCatalogs();
 				    }
 				}
 				

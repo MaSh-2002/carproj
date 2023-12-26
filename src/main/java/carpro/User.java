@@ -9,16 +9,16 @@ public class User {
 	private static final Logger logger = Logger.getLogger(User.class.getName());
 	public User() {}
 	
-	private String username = "Default";
+	private String username ;
 
  
 
 	
-private String password = "Default";
+private String password  ;
 
 
 
-	private String password1 = "Default";
+	private String password1  ;
 
  
     public String getPassword1() {
@@ -40,7 +40,7 @@ private String password = "Default";
 	    public void setLog(boolean newLog) {
 	        log = newLog;
 	    }
-	 private String address = "Default";
+	 private String address;
 
 	
 	    public String getAddress() {
@@ -50,7 +50,7 @@ private String password = "Default";
 	    public void setAddress(String newAddress) {
 	        address = newAddress;
 	    }
-	 private String email = "Default";
+	 private String email;
 
 	  
 	    public String getEmail() {
@@ -60,7 +60,7 @@ private String password = "Default";
 	    public void setEmail(String newEmail) {
 	        email = newEmail;
 	    }
-	 private String name = "Default";
+	 private String name;
 
 	    
 	    public String getName() {
@@ -70,7 +70,7 @@ private String password = "Default";
 	    public void setName(String newName) {
 	        name = newName;
 	    }
-	private String id = "Default";
+	private String id ;
 
    
     public String getId() {
@@ -81,7 +81,7 @@ private String password = "Default";
         id = newId;
     }
 
-	private String phone = "Default";
+	private String phone;
 
    
     public String getPhone() {

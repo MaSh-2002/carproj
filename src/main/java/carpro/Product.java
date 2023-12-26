@@ -4,7 +4,7 @@ public class Product {
 	
 	public static final int ID_SEQUENCE = 0;
 	   
-	 private String name = "Default";
+	 private String name;
 
 	    
 	    public String getName() {
@@ -15,7 +15,7 @@ public class Product {
 	        name = newName;
 	    }
 
-	    private String type = "Default";
+	    private String type;
 
 	   
 	    public String getType() {
