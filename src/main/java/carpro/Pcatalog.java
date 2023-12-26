@@ -293,7 +293,7 @@ if(i==0){
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
 	            logger.info(product.name);
-	            logger.info("Product price: " + product.price);
+	          System.out.println(product.price);
 	            logger.info(product.type);
 
 	          

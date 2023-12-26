@@ -3,6 +3,7 @@ package carpro;
 public class product {
 	
 	public static int idSequence = 0;
+	   
 	public  String name;
     public  String type;
     public int price;
@@ -23,7 +24,7 @@ public class product {
 		this.type=type;
 		this.price=price;
 		this.typeid=typeid;
-		product.pid = ++idSequence;
+	
 	}
 	private InstallationDetails installationDetails;
 
