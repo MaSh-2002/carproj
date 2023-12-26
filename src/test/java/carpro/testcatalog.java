@@ -1,9 +1,12 @@
 package carpro;
 import static org.junit.Assert.assertTrue;
+
+import java.util.logging.Logger;
+
 import io.cucumber.java.en.*;
 
 public class testcatalog {
-	
+	  private static final Logger logger = Logger.getLogger(testcatalog.class.getName());
 	Pcatalog g;
 	String s= "wheel";
 	
@@ -16,7 +19,7 @@ public class testcatalog {
 
 @Given("the user is on the product catalog page")
 public void the_user_is_on_the_product_catalog_page() {
-    System.out.println("User is on the product catalog page");
+    logger.info("User is on the product catalog page");
 	
 }
 
@@ -40,7 +43,7 @@ public void the_system_should_display_a_list_of_products_in_that_category() {
 
 @Given("the user is on the products page")
 public void the_user_is_on_the_products_page() {
-    System.out.println("User is on the product products page");
+	 logger.info("User is on the product products page");
 
 	g.setPagenum(2);
 	}

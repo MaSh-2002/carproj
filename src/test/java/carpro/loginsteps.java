@@ -1,6 +1,9 @@
 package carpro;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import java.util.logging.Logger;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,10 +15,10 @@ public class loginsteps {
     boolean check3;
     boolean check4;
    
-
+    private static final Logger logger = Logger.getLogger(loginsteps.class.getName());
     @Given("the login page is open")
     public void the_login_page_is_open() {
-    	 System.out.println("Welcome to car Accsessories application");
+    	 logger.info("Welcome to car Accsessories application");
     }
     @When("I submit user name {string} and password {string} and should enter to admin page")
     public void i_submit_user_name_and_password_and_should_enter_to_admin_page(String username, String password) {

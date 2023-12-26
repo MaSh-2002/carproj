@@ -17,7 +17,7 @@ public class Tenant {
 	  private String email;
 	  private String password;
 	  static Scanner sc = new Scanner(System.in);
-	    private int profileChoice = 0;
+	   
 	  public Tenant(String name, String phoneNumber, String bankCard, String email, String password) {
 		    this.name = name;
 		    this.phoneNumber = phoneNumber;
@@ -99,6 +99,7 @@ public class Tenant {
 			  public    boolean flageUpdateBank = false;
 			  public  boolean flageUpdateEmail  = false;
 			  public void viewProfile() {
+				  int profileChoice = 0;
 				    logger.info("Viewing customer profile...");
 				    logger.info(() -> "Name: " + name);
 				    logger.info(() -> "Phone Number: " + phoneNumber);
@@ -126,6 +127,7 @@ public class Tenant {
 				    }
 				}
 				public int updateProfileInformation() {
+					  int profileChoice = 0;
 				    logger.info("---------------------");
 				    logger.info("1 - Update phone number");
 				    logger.info("2 - Update bank card");
@@ -177,8 +179,8 @@ public class Tenant {
 				}
 
 				public void tenantPage() {
-				    System.out.println("W E L C O M E \n\r");
-				    System.out.println("1. veiw your profile \n2. veiw catalog \n\r");
+				    logger.info("W E L C O M E \n\r");
+				  logger.info("1. veiw your profile \n2. veiw catalog \n\r");
 				    Scanner x = new Scanner(System.in);
 				    int shoose = x.nextInt();
 				    if (shoose == 1) {
