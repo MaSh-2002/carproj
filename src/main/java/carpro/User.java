@@ -128,29 +128,30 @@ private String password  ;
 	}
 
 	public boolean check(String username, String password, int i) {
-		logger.info(username);
-		for(User user1: usercont) {
-			if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
-				if(user1.getType().equals(UserType.ADMIN)) {
-					Admin admin1= new Admin();
-					if(i!=1) admin1.displayDashboard(usercont);////////////////////////////////
+	    logger.info(username);
 
-					return true;
-				}
-				else if(user1.getType().equals(UserType.INSTALLER)) {
-					
-					Installer installerInstance = new Installer();
-					 if(i!=1) installerInstance.installerWork();
-
-					return true;
-				}
-				else if(user1.getType().equals(UserType.TENANT)) {
-			Tenant tenant = new Tenant(username,user1.email,user1.password);
-			if(i!=1) tenant.tenantPage();
-					return true;
-				}
-			}
-			 
+	    for (User user1 : usercont) {
+	        if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
+	            if (user1.getType().equals(UserType.ADMIN)) {
+	                Admin admin1 = new Admin();
+	                if (i != 1) {
+	                    admin1.displayDashboard(usercont);
+	                }
+	                return true;
+	            } else if (user1.getType().equals(UserType.INSTALLER)) {
+	                Installer installerInstance = new Installer();
+	                if (i != 1) {
+	                    installerInstance.installerWork();
+	                }
+	                return true;
+	            } else if (user1.getType().equals(UserType.TENANT)) {
+	                Tenant tenant = new Tenant(username, user1.email, user1.password);
+	                if (i != 1) {
+	                    tenant.tenantPage();
+	                }
+	                return true;
+	            }
+	        }
 			
 		}
 		logger.info("Login Unsuccessful, the password or username incorrect");

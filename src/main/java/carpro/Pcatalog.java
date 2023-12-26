@@ -130,35 +130,30 @@ public class Pcatalog {
 	
 	public static void veiwCatalogs() {
 	    pagenum = 1;
+	    logger.info("*** To search for a product enter 's'");
 
-	   logger.info("*** To search for a product enter 's'");
-
-	   
 	    for (Category category : categories) {
-	    	 logger.info(category.toString());
+	        logger.info(category.toString());
 	    }
 
-	   
 	    int s = 0;
 	    boolean validInput = false;
 	    Scanner scanner = new Scanner(System.in);
 
 	    while (!validInput) {
-	    	 logger.info("Enter category name or ID:");
+	        logger.info("Enter category name or ID:");
 	        String input = scanner.nextLine().trim();
+
 	        if (input.equals("s")) {
-	        	 logger.info("Enter product name");
+	            logger.info("Enter product name");
 	            Scanner sc = new Scanner(System.in);
-
 	            String in = sc.nextLine();
-	            searchForProduct(in,0);
-
+	            searchForProduct(in, 0);
 	        } else {
 	            try {
 	                s = Integer.parseInt(input);
 	                validInput = true;
 	            } catch (NumberFormatException e) {
-	               
 	                for (Category category : categories) {
 	                    if (category.getName().equalsIgnoreCase(input)) {
 	                        s = category.getId();
@@ -168,40 +163,37 @@ public class Pcatalog {
 	                }
 
 	                if (!validInput) {
-	                	 logger.info("Invalid input. Please enter a valid category name or ID.");
+	                    logger.info("Invalid input. Please enter a valid category name or ID.");
 	                }
 	            }
 	        }
 	    }
+	    veiwproducts(s, 0);
 
-	    veiwproducts(s,0);
-
-	    
 	    boolean continueEnteringProducts = true;
+
 	    while (continueEnteringProducts) {
-	    	 logger.info("Enter product name (or type 'exit' to finish entering products): ");
+	        logger.info("Enter product name (or type 'exit' to finish entering products): ");
 	        String productName = scanner.nextLine().trim();
 
 	        if ("exit".equalsIgnoreCase(productName)) {
 	            continueEnteringProducts = false;
 	        } else {
-	            veiwdetails(productName,0);
+	            veiwdetails(productName, 0);
 
-	           
 	            if (pagenum == 1 || pagenum == 3) {
 	                break;
 	            }
 	        }
 	    }
-	    Tenant t= new Tenant();
-	   
+	    Tenant t = new Tenant();
+
 	    if (pagenum == 2) {
 	        veiwCatalogs();
 	    } else if (pagenum == 1) {
-	        t.viewProfile(); 
+	        t.viewProfile();
 	    }
 	}
-	
 	
 	public static void veiwproducts(int id,int i) {
 	    pagenum = 2;
@@ -265,13 +257,10 @@ public class Pcatalog {
 
 		    
 	    }
-	  
-if(i==0){
-	    if (!productFound) {
-	    	 logger.info("Product not found.");
-	    }
-	}
-	}
+	    if (i == 0 && !productFound) {
+	        logger.info("Product not found.");
+	    }}
+	
 	public int getPagenum() {
 
 		return pagenum;
