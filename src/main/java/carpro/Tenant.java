@@ -94,10 +94,14 @@ public class Tenant {
 			  private   String newBankCard;
 			  private   String newEmail;
 			  private   String newPassword;
-			  public   boolean flageUpdatePassword = false;
-			  public   boolean flageUpdatePhone = false;
-			  public    boolean flageUpdateBank = false;
-			  public  boolean flageUpdateEmail  = false;
+			
+			
+			 
+			  private boolean flageUpdateEmail = false;
+			  private boolean flageUpdatePassword = false;
+			  private boolean flageUpdatePhone= false;
+			  private boolean  flageUpdateBank = false;
+			 
 			  public void setnewPhoneNumber(String newPhoneNumber ) {
 				    this.newPhoneNumber  = newPhoneNumber ;
 				  }
