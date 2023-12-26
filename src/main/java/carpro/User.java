@@ -9,17 +9,88 @@ public class User {
 	private static final Logger logger = Logger.getLogger(User.class.getName());
 	public User() {}
 	
-public  String username;
+	private String username = "Default";
+
+ 
+
 	
-	public String password;
-	public String password1;
+private String password = "Default";
+
+
+
+	private String password1 = "Default";
+
+ 
+    public String getPassword1() {
+        return password1;
+    }
+
+    public void setPassword1(String newPassword1) {
+        password1 = newPassword1;
+    }
+
 	private UserType type;
-	public boolean log;
-	public String address;
-	public String Email;
-	public String name;
-	public String id;
-	public String phone;
+	 private boolean log = false;
+
+	 
+	    public boolean isLog() {
+	        return log;
+	    }
+
+	    public void setLog(boolean newLog) {
+	        log = newLog;
+	    }
+	 private String address = "Default";
+
+	
+	    public String getAddress() {
+	        return address;
+	    }
+
+	    public void setAddress(String newAddress) {
+	        address = newAddress;
+	    }
+	 private String Email = "Default";
+
+	  
+	    public String getEmail() {
+	        return Email;
+	    }
+
+	    public void setEmail(String newEmail) {
+	        Email = newEmail;
+	    }
+	 private String name = "Default";
+
+	    
+	    public String getName() {
+	        return name;
+	    }
+
+	    public void setName(String newName) {
+	        name = newName;
+	    }
+	private String id = "Default";
+
+   
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String newId) {
+        id = newId;
+    }
+
+	private String phone = "Default";
+
+   
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String newPhone) {
+        phone = newPhone;
+    }
 	 float point=0;
 	public User(String username, String password, String email, UserType type) {
 		this.username=username;
