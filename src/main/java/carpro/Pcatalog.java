@@ -251,7 +251,7 @@ public class Pcatalog {
 	                buy(product,null,null,0);
 	            } else if (si == 2) {
 	            	 logger.info("Returning to main menu...");
-	                main.mainMenu();  // Go back to the main menu
+	                Main.mainMenu();  // Go back to the main menu
 	                return;
 	            } else {
 	            	 logger.info("Invalid input. Returning to catalogs.");
@@ -293,7 +293,7 @@ if(i==0){
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
 	            logger.info(product.name);
-	            logger.info("Product price: " + product.price);
+	            logger.info(String.format("Product price: %d", product.price));
 	            logger.info(product.type);
 
 	          
@@ -359,10 +359,10 @@ if(i==0){
 	            if (choice == 1) {
 	                veiwCatalogs();
 	            } else if (choice == 2) {
-	                main.start();  
+	                Main.start();  
 	            } else {
 	            	 logger.info("Invalid input. Returning to main menu...");
-	                main.start();  
+	                Main.start();  
 	            }
 		}
 	        }
@@ -384,7 +384,7 @@ if(i==0){
 
 		product productToRemove = new product(prod.name,prod.type,prod.price,prod.typeid);	
 		
-		 isRemoved = products.remove(productToRemove);	
+		products.remove(productToRemove);
 		 isRemoved= true;
 		}
 
