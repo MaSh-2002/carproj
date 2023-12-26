@@ -293,7 +293,7 @@ if(i==0){
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
 	            logger.info(product.name);
-	          System.out.println(product.price);
+	            logger.info("Product price: " + product.price);
 	            logger.info(product.type);
 
 	          
@@ -404,7 +404,7 @@ if(category.getId()==id)	{
 
 	Category categoryToRemove = new Category(category.getName());	
 	
-	 isRemoved = categories.remove(categoryToRemove);	
+	categories.remove(categoryToRemove);
 	 isRemoved= true;
 	}
 
