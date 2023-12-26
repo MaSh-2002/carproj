@@ -4,8 +4,9 @@ public class Order {
 	private String carMakeModel;
 	private String dateTime1;
 
-    public  String name;
-    public int price;
+	 private String name;
+
+	    private int price;
     public  Order( String carMakeModel,String dateTime1, String name, int price) {
     	this.price=price;
     	this.carMakeModel=carMakeModel;
@@ -26,4 +27,20 @@ public class Order {
  public String toString() {
 		return name + ":\n car Model" + carMakeModel +"\ndate:"+dateTime1+"\nprice"+price;
 	}
+
+public String getName() {
+    return name;
+}
+
+public void setName(String newName) {
+    this.name = newName;
+}
+
+public int getPrice() {
+    return price;
+}
+
+public void setPrice(int newPrice) {
+    this.price = newPrice;
+}
 }

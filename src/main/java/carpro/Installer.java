@@ -22,7 +22,7 @@ public void installerWork() {
 			case 1:
 
 				 for (Order order : Pcatalog.orders) {
-					 System.out.println("test");
+					 logger.info("test");
 
 		           order.toString()  ;
 				 }
@@ -63,10 +63,10 @@ public void provideInstallationDetails(String carMakeModel, String preferredDate
     if (selectedProduct != null) {
        
         selectedProduct.setInstallationDetails(installationDetails);
-        System.out.println("Installation details provided successfully.");
+        logger.info("Installation details provided successfully.");
     } else {
         
-        System.out.println("No product selected for installation.");
+    	logger.info("No product selected for installation.");
     }
 }
 
