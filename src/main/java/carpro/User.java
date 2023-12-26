@@ -58,8 +58,8 @@ public boolean login (String userna, String pass,int i) {
 				}
 				else if(user1.getType().equals(UserType.INSTALLER)) {
 					
-					Installer Ins = new Installer ();
-					 if(i!=1) Ins.installerWork();
+					Installer installerInstance = new Installer();
+					 if(i!=1) installerInstance.installerWork();
 
 					return true;
 				}
