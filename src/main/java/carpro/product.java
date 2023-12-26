@@ -6,14 +6,23 @@ public class product {
 	public  String name;
     public  String type;
     public int price,typeid;
-    public int pid=0;
+    private static int pid = 0;
+
+  
+    public static int getPid() {
+        return pid;
+    }
+
+    static void setPid(int pid) {
+        product.pid = pid;
+    }
     
 	public product(String name, String type,int price,int typeid) {
 		this.name=name;
 		this.type=type;
 		this.price=price;
 		this.typeid=typeid;
-		this.pid = ++idSequence;
+		product.pid = ++idSequence;
 	}
 	private InstallationDetails installationDetails;
 

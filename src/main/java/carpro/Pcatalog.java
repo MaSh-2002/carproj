@@ -408,7 +408,7 @@ if(category.getId()==id)	{
 public static void updateproduct(int id ,String name , int price ,int typeid) {
 	
 	for (product product : products) {
-		if (product.pid == id) {
+		if (product.getPid() == id) {
 			product.name=name;
 			product.price=price;
 			product.typeid=typeid;

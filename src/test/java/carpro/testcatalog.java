@@ -1,4 +1,5 @@
 package carpro;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.logging.Logger;
@@ -35,7 +36,7 @@ g.veiwproducts(3,1);
 @Then("the system should display a list of products in that category")
 public void the_system_should_display_a_list_of_products_in_that_category() {
   
-    assertTrue(g.getPagenum() == 2);
+	assertEquals(2, g.getPagenum());
 	
 	
 
@@ -57,7 +58,7 @@ public void the_user_selects_a_specific_product() {
 @Then("the system should display detailed information including description, images, price, and availability status")
 public void the_system_should_display_detailed_information_including_description_images_price_and_availability_status() {
   
-    assertTrue(g.getPagenum() == 3);
+	assertEquals(3,g.getPagenum());
 
 	
 	
@@ -76,7 +77,7 @@ public void the_user_enters_a_search_query() {
 
 @Then("the system should display relevant products matching the search query")
 public void the_system_should_display_relevant_products_matching_the_search_query() {
-	   assertTrue(g.getSearch()==1);
+	assertEquals(1,g.getSearch());
 }
 
 
