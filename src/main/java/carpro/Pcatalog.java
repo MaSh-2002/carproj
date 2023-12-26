@@ -56,11 +56,19 @@ public class Pcatalog {
         return orders;
     }
 
-	private  static List<Category> categories = new ArrayList<Category>() {{
-		add(new Category("Exterior"));
-		add(new Category("Electronics"));
-		add(new Category("Interior"));
-	}};
+    
+        private static List<Category> categories;
+
+       
+        static {
+            categories = new ArrayList<>();
+            categories.add(new Category("Exterior"));
+            categories.add(new Category("Electronics"));
+            categories.add(new Category("Interior"));
+        }
+
+       
+    
 	
 	private  static List<product> products = new ArrayList<product>() {{
 		add(new product("Covers", "Exterior", 60, 1));

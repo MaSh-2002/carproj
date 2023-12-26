@@ -19,26 +19,15 @@ public void installerWork() {
 
 		int choice = in.nextInt();
 
-		switch (choice) {
-			case 1:
-
-				 for (Order order : Pcatalog.getOrders()) {
-					 logger.info("test");
-
-		           order.toString()  ;
-				 }
-				break;
-				
-				
-				
-		
-	
-			default:
-				logger.info("Invalid choice");
-				installerWork();
-				break;
-		}
-		
+		if (choice == 1) {
+		    for (Order order : Pcatalog.getOrders()) {
+		        logger.info("test");
+		        order.toString();
+		    }
+		} else {
+		    logger.info("Invalid choice");
+		    installerWork();
+		}		
 }
 
 
