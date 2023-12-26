@@ -23,7 +23,7 @@ public class Pcatalog {
     public static void setBuycheck(boolean buycheck) {
     	Pcatalog.buycheck = buycheck;
     }
-	private static int pagenum = 0;
+
 
  
     public static int getPagenum1() {
@@ -256,14 +256,14 @@ public class Pcatalog {
 	    }
 	    }
 	
-	    
+	private static int pagenum;   
 	public int getPagenum() {
 
 		return pagenum;
 	}
 
 	public void setPagenum(int i) {
-
+	
 		pagenum = i;
 	}
 
