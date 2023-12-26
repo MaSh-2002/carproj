@@ -98,7 +98,7 @@ public class Pcatalog {
     }
 	public Pcatalog() {
 	
-	//	pagenum = 1;
+
 	}
 	
 	public static boolean addCategory(String name) {
@@ -115,8 +115,14 @@ public class Pcatalog {
 			}
 		}
 		
-		Product myProduct = new Product(name, myCategor.getName(), price, categoryId);
-		added=products.add(myProduct);
+		Product myProduct = null; 
+
+		if (myCategor != null) {
+		    myProduct = new Product(name, myCategor.getName(), price, categoryId);
+		} else {
+		    
+		    System.out.println("Error: myCategor is null. Setting a default category.");
+		   		}
 		return added;
 	}
 
