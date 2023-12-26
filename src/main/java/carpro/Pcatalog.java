@@ -11,8 +11,15 @@ public class Pcatalog {
 	Tenant t= new Tenant();
 	private boolean shouldPromptProductName = true; 
 	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
-	public   static boolean buycheck=false;
+	private static boolean buycheck = false;
 
+    public static boolean isBuycheck() {
+        return buycheck;
+    }
+
+    public static void setBuycheck(boolean buycheck) {
+    	Pcatalog.buycheck = buycheck;
+    }
 	private static int pagenum = 0;
 
  
@@ -33,7 +40,11 @@ public class Pcatalog {
     static void setSearch(int search) {
     	Pcatalog.search = search;
     }
-	public  static List<Order> orders = new ArrayList() ;
+    private static List<Order> orders = new ArrayList<>();
+
+    public static List<Order> getOrders() {
+        return orders;
+    }
 
 	private  static List<Category> categories = new ArrayList() {{
 		add(new Category("Exterior"));

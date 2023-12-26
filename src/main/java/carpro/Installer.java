@@ -1,5 +1,6 @@
 package carpro;
 
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -21,7 +22,7 @@ public void installerWork() {
 		switch (choice) {
 			case 1:
 
-				 for (Order order : Pcatalog.orders) {
+				 for (Order order : Pcatalog.getOrders()) {
 					 logger.info("test");
 
 		           order.toString()  ;
