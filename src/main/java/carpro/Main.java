@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class Main {
     public static final  User user = new User();
-    public static Scanner input = new Scanner(System.in);
+    public static final  Scanner input = new Scanner(System.in);
     private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {

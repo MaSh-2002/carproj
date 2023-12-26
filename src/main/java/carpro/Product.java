@@ -2,12 +2,50 @@ package carpro;
 
 public class Product {
 	
-	public static final int idSequence = 0;
+	public static final int ID_SEQUENCE = 0;
 	   
-	public  String name;
-    public  String type;
-    public int price;
-	public int typeid;
+	 private String name = "Default";
+
+	    
+	    public String getName() {
+	        return name;
+	    }
+
+	    public void setName(String newName) {
+	        name = newName;
+	    }
+
+	    private String type = "Default";
+
+	   
+	    public String getType() {
+	        return type;
+	    }
+
+	    public void setType(String newType) {
+	        type = newType;
+	    }
+	    
+	    private int price = 0;
+
+	   
+	    public int getPrice() {
+	        return price;
+	    }
+
+	    public void setPrice(int newPrice) {
+	        price = newPrice;
+	    }
+	    private static int typeid = 0;
+
+	   
+	    public static int getTypeid() {
+	        return typeid;
+	    }
+
+	    static void setTypeid(int newTypeid) {
+	        typeid = newTypeid;
+	    }
     private static int pid = 0;
 
   

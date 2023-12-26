@@ -91,8 +91,8 @@ public void printcatalogs() {
 		
 			 logger.info(category.getName());
 			for (Product product : products) {
-				if (product.typeid == category.getId()) {
-					 logger.info(product.name);
+				if (product.getTypeid()== category.getId()) {
+					 logger.info(product.getName());
 
 					
 				}

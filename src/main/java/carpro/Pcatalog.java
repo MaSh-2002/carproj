@@ -206,8 +206,8 @@ public class Pcatalog {
 	public static void veiwproducts(int id,int i) {
 	    pagenum = 2;
 	    for (Product product : products) {
-	        if (product.typeid == id) {
-	            logger.info(product.name);
+	        if (product.getTypeid() == id) {
+	            logger.info(product.getName());
 	        }
 	    }
 
@@ -234,10 +234,10 @@ public class Pcatalog {
 	    boolean productFound = false;
 
 	    for (Product product : products) {
-	        if (id.equals(product.name)) {
-	        	 logger.info(product.name);
-	        	 logger.info(String.format("%d$", product.price));
-	        	 logger.info(product.type);
+	        if (id.equals(product.getName())) {
+	        	 logger.info(product.getName());
+	        	 logger.info(String.format("%d$", product.getPrice()));
+	        	 logger.info(product.getType());
 
 			if(i==0){
 				 logger.info("Enter 1 if you want to buy this product ");
@@ -288,15 +288,15 @@ if(i==0){
 	    boolean productFound = false;
 
 	    for (Product product : products) {
-	        if (product.name.equalsIgnoreCase(searchQuery)) {
+	        if (product.getName().equalsIgnoreCase(searchQuery)) {
 	            search = 1;
 
 	            // Log product details only if the product type is not empty
-	            logger.info(product.name);
+	            logger.info(product.getName());
 
-	            if (!product.type.isEmpty()) {
-	                logger.info(String.format("Product price: %d", product.price));
-	                logger.info(product.type);
+	            if (!product.getType().isEmpty()) {
+	                logger.info(String.format("Product price: %d", product.getPrice()));
+	                logger.info(product.getType());
 	            }
 
 	            productFound = true;
@@ -348,7 +348,7 @@ String model;
 	        }
 
 	        if (f == 2) {
-	            Order order = new Order(model, userInput, product.name, product.price);
+	            Order order = new Order(model, userInput, product.getName(), product.getPrice());
 	            orders.add(order);
 	            logger.info("The order has been accepted.");
 			    buycheck=true;
@@ -383,9 +383,9 @@ if(i==0){
 		boolean isRemoved= false;
 		for (Product prod : products) {
 			
-	if(name.equalsIgnoreCase(prod.name))	{
+	if(name.equalsIgnoreCase(prod.getName()))	{
 
-		Product productToRemove = new Product(prod.name,prod.type,prod.price,prod.typeid);	
+		Product productToRemove = new Product(prod.getName(),prod.getType(),prod.getPrice(),prod.getTypeid());	
 		
 		products.remove(productToRemove);
 		 isRemoved= true;
@@ -423,9 +423,9 @@ public static void updateproduct(int id ,String name , int price ,int typeid) {
 	
 	for (Product product : products) {
 		if (product.getPid() == id) {
-			product.name=name;
-			product.price=price;
-			product.typeid=typeid;
+			product.getName();
+			product.getPrice();
+			product.getTypeid();
 		}
 	}
 	
