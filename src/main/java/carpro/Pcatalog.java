@@ -85,12 +85,12 @@ public class Pcatalog {
 		add(new product("Mirrors", "Interior", 20, 3));
 	}};
 
-	public static List<product> getproducts() {
+	public static List<product> getProducts1() {
         return products;
     }
 	
 
-	public static List<Category> getcategories() {
+	public static List<Category> getCategories1() {
         return categories;
     }
 	public Pcatalog() {

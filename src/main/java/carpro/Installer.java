@@ -63,7 +63,7 @@ public void provideInstallationDetails(String carMakeModel, String preferredDate
 
 private product getProductByName(String productName) {
    
-    for (product product : Pcatalog.getproducts()) {
+    for (product product : Pcatalog.getProducts1()) {
         if (product.name.equalsIgnoreCase(productName)) {
             return product;
         }
