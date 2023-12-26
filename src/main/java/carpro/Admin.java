@@ -23,7 +23,7 @@ public void adminWork() {
 
 boolean isLoggedIn = true;
 
-public void displayDashboard(ArrayList<User> usercont) {
+public void displayDashboard(List<User> usercont) {
 	while (isLoggedIn) {
 		logger.info("Welcome to Admin Dashboard Panel");
 		logger.info("1 - Show the catalog");
@@ -48,25 +48,23 @@ public void displayDashboard(ArrayList<User> usercont) {
 				int choice2 = scanner.nextInt();
 				
 				switch (choice2) {
-					case 1:
-						 logger.info("Enter catagory name:");
-						
-						Scanner sc = new Scanner(System.in);						
-                        String s= sc.nextLine();
-						Pcatalog.addCategory(s);
-						break;
-					case 2:
-						 logger.info("Enter catagory numbers:");
-
-						Scanner scr = new Scanner(System.in);						
-                        int st= scr.nextInt();
-
-						Pcatalog.deletecatalogs(st);
-						break;	
-				}	
-				break;
-
-
+			    case 1:
+			        logger.info("Enter category name:");
+			        Scanner sc = new Scanner(System.in);
+			        String s = sc.nextLine();
+			        Pcatalog.addCategory(s);
+			        break;
+			    case 2:
+			        logger.info("Enter category numbers:");
+			        Scanner scr = new Scanner(System.in);
+			        int st = scr.nextInt();
+			        Pcatalog.deletecatalogs(st);
+			        break;
+			    default:
+			        // This will be executed if choice2 doesn't match any case
+			        logger.info("Invalid choice. Please choose a valid option.");
+			        break;
+			}
 			case 3:
 				logger.info("edit product");
 				logger.info("1 - add");
@@ -119,7 +117,7 @@ public void printcatalogs() {// print catagories for admin
 	
 
 }
-public void veiwCustomer(ArrayList<User> usercont) {
+public void veiwCustomer(List<User> usercont) {
 	
 	
 	
