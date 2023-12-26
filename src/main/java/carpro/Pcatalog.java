@@ -76,11 +76,11 @@ public class Pcatalog {
 	public static void veiwCatalogs() {
 	    pagenum = 1;
 
-	    System.out.println("*** To search for a product enter 's'");
+	   logger.info("*** To search for a product enter 's'");
 
 	   
 	    for (Category category : categories) {
-	        System.out.println(category.toString());
+	    	 logger.info(category.toString());
 	    }
 
 	   
@@ -89,10 +89,10 @@ public class Pcatalog {
 	    Scanner scanner = new Scanner(System.in);
 
 	    while (!validInput) {
-	        System.out.print("Enter category name or ID:");
+	    	 logger.info("Enter category name or ID:");
 	        String input = scanner.nextLine().trim();
 	        if (input.equals("s")) {
-	            System.out.println("Enter product name");
+	        	 logger.info("Enter product name");
 	            Scanner sc = new Scanner(System.in);
 
 	            String in = sc.nextLine();
@@ -113,7 +113,7 @@ public class Pcatalog {
 	                }
 
 	                if (!validInput) {
-	                    System.out.println("Invalid input. Please enter a valid category name or ID.");
+	                	 logger.info("Invalid input. Please enter a valid category name or ID.");
 	                }
 	            }
 	        }
@@ -124,7 +124,7 @@ public class Pcatalog {
 	    
 	    boolean continueEnteringProducts = true;
 	    while (continueEnteringProducts) {
-	        System.out.print("Enter product name (or type 'exit' to finish entering products): ");
+	    	 logger.info("Enter product name (or type 'exit' to finish entering products): ");
 	        String productName = scanner.nextLine().trim();
 
 	        if ("exit".equalsIgnoreCase(productName)) {
@@ -159,7 +159,7 @@ public class Pcatalog {
 
 	if(i==0){	
 	   
-	    System.out.print("Enter product name (or type '0' to return to catalogs): ");
+		 logger.info("Enter product name (or type '0' to return to catalogs): ");
 	    Scanner scanner = new Scanner(System.in);
 	    String productName = scanner.nextLine().trim();
 
@@ -180,24 +180,24 @@ public class Pcatalog {
 
 	    for (product product : products) {
 	        if (id.equals(product.name)) {
-	            System.out.println(product.name);
-	            System.out.println(product.price + "$");
-	            System.out.println(product.type);
+	        	 logger.info(product.name);
+	        	 logger.info(product.price + "$");
+	        	 logger.info(product.type);
 
 			if(i==0){
-	            System.out.println("Enter 1 if you want to buy this product ");
-	            System.out.println("Enter 2 to return to the main menu ");
+				 logger.info("Enter 1 if you want to buy this product ");
+				 logger.info("Enter 2 to return to the main menu ");
 	            Scanner sc = new Scanner(System.in);
 	            int si = sc.nextInt();
 
 	            if (si == 1) {
 	                buy(product,null,null,0);
 	            } else if (si == 2) {
-	                System.out.println("Returning to main menu...");
+	            	 logger.info("Returning to main menu...");
 	                main.mainMenu();  // Go back to the main menu
 	                return;
 	            } else {
-	                System.out.println("Invalid input. Returning to catalogs.");
+	            	 logger.info("Invalid input. Returning to catalogs.");
 	                veiwCatalogs();
 	                return;
 	            }
@@ -212,7 +212,7 @@ public class Pcatalog {
 	    }
 if(i==0){
 	    if (!productFound) {
-	        System.out.println("Product not found.");
+	    	 logger.info("Product not found.");
 	    }
 	}
 	}
@@ -234,9 +234,9 @@ if(i==0){
 	    for (product product : products) {
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
-	            System.out.println(product.name);
+	            logger.info(product.name);
 	            System.out.println(product.price);
-	            System.out.println(product.type);
+	            logger.info(product.type);
 
 	          
 	            productFound = true;
@@ -246,7 +246,7 @@ if(i==0){
 if(i==0){
 	    if (productFound) {
 	        
-	        System.out.print("Enter 'buy' to purchase the product, or 'back' to return to categories: ");
+	    	 logger.info("Enter 'buy' to purchase the product, or 'back' to return to categories: ");
 	        Scanner scanner = new Scanner(System.in);
 	        String input = scanner.nextLine().trim();
 
@@ -256,7 +256,7 @@ if(i==0){
 	            veiwCatalogs();
 	        } else {
 	            
-	            System.out.println("Invalid input. Returning to categories.");
+	        	 logger.info("Invalid input. Returning to categories.");
 	            veiwCatalogs();
 	        }
 	    }
@@ -275,7 +275,7 @@ String model;
  String userInput;
 		    if(i==0){
 	        logger.info("Enter the installation date you want (and we will tell you if it's available) ");
-	        System.out.print("Enter the date and time (YYYY-MM-DD/H:mm): ");
+	        logger.info("Enter the date and time (YYYY-MM-DD/H:mm): ");
 	        userInput = scanner.nextLine();
 		    }else{userInput=date;}
 	        for (Order order1 : orders) {
@@ -289,13 +289,13 @@ String model;
 	        if (f == 2) {
 	            Order order = new Order(model, userInput, product.name, product.price);
 	            orders.add(order);
-	            System.out.println("The order has been accepted.");
+	            logger.info("The order has been accepted.");
 			    buycheck=true;
 if(i==0){
 	           
-	            System.out.println("Options:");
-	            System.out.println("1. Return to catalog");
-	            System.out.println("2. Go back to main menu");
+	 logger.info("Options:");
+	 logger.info("1. Return to catalog");
+	 logger.info("2. Go back to main menu");
 
 	            int choice = scanner.nextInt();
 	            if (choice == 1) {
@@ -303,7 +303,7 @@ if(i==0){
 	            } else if (choice == 2) {
 	                main.start();  
 	            } else {
-	                System.out.println("Invalid input. Returning to main menu...");
+	            	 logger.info("Invalid input. Returning to main menu...");
 	                main.start();  
 	            }
 		}
