@@ -130,35 +130,52 @@ private String password  ;
 	public boolean check(String username, String password, int i) {
 	    logger.info(username);
 
-	    for (User user1 : usercont) {
-	        if (user1.getUsername().equals(username) && user1.getPassword().equals(password)) {
-	            if (user1.getType().equals(UserType.ADMIN)) {
-	                Admin admin1 = new Admin();
-	                if (i != 1) {
-	                    admin1.displayDashboard(usercont);
-	                }
-	                return true;
-	            } else if (user1.getType().equals(UserType.INSTALLER)) {
-	                Installer installerInstance = new Installer();
-	                if (i != 1) {
-	                    installerInstance.installerWork();
-	                }
-	                return true;
-	            } else if (user1.getType().equals(UserType.TENANT)) {
-	                Tenant tenant = new Tenant(username, user1.email, user1.password);
-	                if (i != 1) {
-	                    tenant.tenantPage();
-	                }
-	                return true;
-	            }
+	    for (User user : usercont) {
+	        if (isValidCredentials(user, username, password)) {
+	            handleUserLogin(user, i);
+	            return true;
 	        }
-			
-		}
-		logger.info("Login Unsuccessful, the password or username incorrect");
-		return false;
-	
+	    }
+
+	    logger.info("Login Unsuccessful, the password or username is incorrect");
+	    return false;
 	}
 
+	private boolean isValidCredentials(User user, String username, String password) {
+	    return user.getUsername().equals(username) && user.getPassword().equals(password);
+	}
+
+	private void handleUserLogin(User user, int i) {
+	    switch (user.getType()) {
+	        case ADMIN:
+	            handleAdminLogin(i);
+	            break;
+	        case INSTALLER:
+	            handleInstallerLogin(i);
+	            break;
+	        case TENANT:
+	            handleTenantLogin(user.getUsername(), user.getEmail(), user.getPassword(), i);
+	            break;
+	    }
+	}
+
+	private void handleAdminLogin(int i) {
+	    if (i != 1) {
+	        new Admin().displayDashboard(usercont);
+	    }
+	}
+
+	private void handleInstallerLogin(int i) {
+	    if (i != 1) {
+	        new Installer().installerWork();
+	    }
+	}
+
+	private void handleTenantLogin(String username, String email, String password, int i) {
+	    if (i != 1) {
+	        new Tenant(username, email, password).tenantPage();
+	    }
+	}
 public String getPassword() {
 	return password;
 }
