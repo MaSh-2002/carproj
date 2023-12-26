@@ -267,6 +267,7 @@ public class Pcatalog {
 
 		    
 	    }
+	  
 if(i==0){
 	    if (!productFound) {
 	    	 logger.info("Product not found.");
@@ -292,7 +293,7 @@ if(i==0){
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
 	            logger.info(product.name);
-	            System.out.println(product.price);
+	            logger.info("Product price: " + product.price);
 	            logger.info(product.type);
 
 	          

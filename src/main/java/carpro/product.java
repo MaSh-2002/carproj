@@ -5,7 +5,8 @@ public class product {
 	public static int idSequence = 0;
 	public  String name;
     public  String type;
-    public int price,typeid;
+    public int price;
+	public int typeid;
     private static int pid = 0;
 
   
