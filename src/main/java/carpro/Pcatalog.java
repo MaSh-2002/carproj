@@ -57,33 +57,43 @@ public class Pcatalog {
     }
 
     
-        private static List<Category> categories;
+    private static final String EXTERIOR_CATEGORY_NAME = "Exterior";
+    private static final String ELECTRONICS_CATEGORY_NAME = "Electronics";
+    private static final String INTERIOR_CATEGORY_NAME = "Interior";
 
-       
-        static {
-            categories = new ArrayList<>();
-            categories.add(new Category("Exterior"));
-            categories.add(new Category("Electronics"));
-            categories.add(new Category("Interior"));
-        }
+    private static List<Category> categories;
+    private static List<product> products;
 
-       
-    
-	
-	private  static List<product> products = new ArrayList<product>() {{
-		add(new product("Covers", "Exterior", 60, 1));
-		add(new product("Wash", "Exterior", 35, 1));
-		add(new product("wheel", "Exterior", 50, 1));
-		add(new product("Sunshades", "Exterior", 200, 1));
-		add(new product("Bluetooth", "Electronics", 200, 2));
-		add(new product("GPS", "Electronics", 150, 2));
-		add(new product("Camera", "Electronics", 50, 2)); 
-		add(new product("Phone", "Electronics", 25, 2));
-		add(new product("light", "Interior", 20, 3));
-		add(new product("Organizers", "Interior", 70, 3));
-		add(new product("Seat", "Interior", 500, 3));
-		add(new product("Mirrors", "Interior", 20, 3));
-	}};
+    static {
+        initializeCategories();
+        initializeProducts();
+    }
+
+    private static void initializeCategories() {
+        categories = new ArrayList<>();
+        categories.add(new Category(EXTERIOR_CATEGORY_NAME));
+        categories.add(new Category(ELECTRONICS_CATEGORY_NAME));
+        categories.add(new Category(INTERIOR_CATEGORY_NAME));
+    }
+
+    private static void initializeProducts() {
+        products = new ArrayList<>();
+        products.add(new product("Covers", EXTERIOR_CATEGORY_NAME, 60, 1));
+        products.add(new product("Wash", EXTERIOR_CATEGORY_NAME, 35, 1));
+        products.add(new product("Wheel", EXTERIOR_CATEGORY_NAME, 50, 1));
+        products.add(new product("Sunshades", EXTERIOR_CATEGORY_NAME, 200, 1));
+        products.add(new product("Bluetooth", ELECTRONICS_CATEGORY_NAME, 200, 2));
+        products.add(new product("GPS", ELECTRONICS_CATEGORY_NAME, 150, 2));
+        products.add(new product("Camera", ELECTRONICS_CATEGORY_NAME, 50, 2));
+        products.add(new product("Phone", ELECTRONICS_CATEGORY_NAME, 25, 2));
+        products.add(new product("Light", INTERIOR_CATEGORY_NAME, 20, 3));
+        products.add(new product("Organizers", INTERIOR_CATEGORY_NAME, 70, 3));
+        products.add(new product("Seat", INTERIOR_CATEGORY_NAME, 500, 3));
+        products.add(new product("Mirrors", INTERIOR_CATEGORY_NAME, 20, 3));
+    }
+
+ 
+
 
 	public static List<product> getProducts1() {
         return products;

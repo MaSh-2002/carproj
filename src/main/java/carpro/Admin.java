@@ -83,8 +83,8 @@ public void displayDashboard(List<User> usercont) {
 
 
 public void printcatalogs() {
-	List<Category> categories = Pcatalog.getCategories();
-	List<product> products = Pcatalog.getProducts();
+	List<Category> categories = Pcatalog.getCategories1();
+	List<product> products = Pcatalog.getProducts1();
 	
 		
 		for (Category category : categories) {
