@@ -1,7 +1,7 @@
 package carpro;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
+
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -19,7 +19,7 @@ public class Pcatalog {
 	    public static List<product> getProducts() {
 	        return products;
 	    }
-	private boolean shouldPromptProductName = true; 
+	
 	private static final Logger logger = Logger.getLogger(Pcatalog.class.getName());
 	private static boolean buycheck = false;
 
@@ -56,13 +56,13 @@ public class Pcatalog {
         return orders;
     }
 
-	private  static List<Category> categories = new ArrayList() {{
+	private  static List<Category> categories = new ArrayList<Category>() {{
 		add(new Category("Exterior"));
 		add(new Category("Electronics"));
 		add(new Category("Interior"));
 	}};
 	
-	private  static List<product> products = new ArrayList() {{
+	private  static List<product> products = new ArrayList<product>() {{
 		add(new product("Covers", "Exterior", 60, 1));
 		add(new product("Wash", "Exterior", 35, 1));
 		add(new product("wheel", "Exterior", 50, 1));
@@ -191,7 +191,7 @@ public class Pcatalog {
 	    pagenum = 2;
 	    for (product product : products) {
 	        if (product.typeid == id) {
-	            System.out.println(product.name);
+	            logger.info(product.name);
 	        }
 	    }
 
@@ -319,7 +319,7 @@ String model;
 		    }else{userInput=date;}
 	        for (Order order1 : orders) {
 	            if (userInput.equalsIgnoreCase(order1.getdateTime1())) {
-	                System.out.println("The selected date is not available. Please choose another date.");
+	            	 logger.info("The selected date is not available. Please choose another date.");
 	                f = 0;
 	                break;
 	            }
