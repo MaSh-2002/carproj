@@ -264,7 +264,7 @@ public class Pcatalog {
 
 	public void setPagenum(int i) {
 	
-		pagenum = i;
+	
 	}
 
 	public static void searchForProduct(String searchQuery,int i ) {
