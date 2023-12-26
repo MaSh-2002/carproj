@@ -33,7 +33,7 @@ public void installerWork() {
 
 	
 }
-private product selectedProduct;
+private Product selectedProduct;
 
 private boolean installationRequestConfirmed = false;
 private boolean informationProvidedAboutScheduledInstallation = false;
@@ -61,9 +61,9 @@ public void provideInstallationDetails(String carMakeModel, String preferredDate
 }
 
 
-private product getProductByName(String productName) {
+private Product getProductByName(String productName) {
    
-    for (product product : Pcatalog.getProducts1()) {
+    for (Product product : Pcatalog.getProducts1()) {
         if (product.name.equalsIgnoreCase(productName)) {
             return product;
         }

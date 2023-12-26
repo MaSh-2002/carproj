@@ -16,7 +16,7 @@ public class Pcatalog {
 	        return categories;
 	    }
 
-	    public static List<product> getProducts() {
+	    public static List<Product> getProducts() {
 	        return products;
 	    }
 	
@@ -62,7 +62,7 @@ public class Pcatalog {
     private static final String INTERIOR_CATEGORY_NAME = "Interior";
 
     private static List<Category> categories;
-    private static List<product> products;
+    private static List<Product> products;
 
     static {
         initializeCategories();
@@ -78,24 +78,24 @@ public class Pcatalog {
 
     private static void initializeProducts() {
         products = new ArrayList<>();
-        products.add(new product("Covers", EXTERIOR_CATEGORY_NAME, 60, 1));
-        products.add(new product("Wash", EXTERIOR_CATEGORY_NAME, 35, 1));
-        products.add(new product("Wheel", EXTERIOR_CATEGORY_NAME, 50, 1));
-        products.add(new product("Sunshades", EXTERIOR_CATEGORY_NAME, 200, 1));
-        products.add(new product("Bluetooth", ELECTRONICS_CATEGORY_NAME, 200, 2));
-        products.add(new product("GPS", ELECTRONICS_CATEGORY_NAME, 150, 2));
-        products.add(new product("Camera", ELECTRONICS_CATEGORY_NAME, 50, 2));
-        products.add(new product("Phone", ELECTRONICS_CATEGORY_NAME, 25, 2));
-        products.add(new product("Light", INTERIOR_CATEGORY_NAME, 20, 3));
-        products.add(new product("Organizers", INTERIOR_CATEGORY_NAME, 70, 3));
-        products.add(new product("Seat", INTERIOR_CATEGORY_NAME, 500, 3));
-        products.add(new product("Mirrors", INTERIOR_CATEGORY_NAME, 20, 3));
+        products.add(new Product("Covers", EXTERIOR_CATEGORY_NAME, 60, 1));
+        products.add(new Product("Wash", EXTERIOR_CATEGORY_NAME, 35, 1));
+        products.add(new Product("Wheel", EXTERIOR_CATEGORY_NAME, 50, 1));
+        products.add(new Product("Sunshades", EXTERIOR_CATEGORY_NAME, 200, 1));
+        products.add(new Product("Bluetooth", ELECTRONICS_CATEGORY_NAME, 200, 2));
+        products.add(new Product("GPS", ELECTRONICS_CATEGORY_NAME, 150, 2));
+        products.add(new Product("Camera", ELECTRONICS_CATEGORY_NAME, 50, 2));
+        products.add(new Product("Phone", ELECTRONICS_CATEGORY_NAME, 25, 2));
+        products.add(new Product("Light", INTERIOR_CATEGORY_NAME, 20, 3));
+        products.add(new Product("Organizers", INTERIOR_CATEGORY_NAME, 70, 3));
+        products.add(new Product("Seat", INTERIOR_CATEGORY_NAME, 500, 3));
+        products.add(new Product("Mirrors", INTERIOR_CATEGORY_NAME, 20, 3));
     }
 
  
 
 
-	public static List<product> getProducts1() {
+	public static List<Product> getProducts1() {
         return products;
     }
 	
@@ -124,7 +124,7 @@ public class Pcatalog {
 			}
 		}
 		
-		product myProduct = new product(name, myCategor.getName(), price, categoryId);
+		Product myProduct = new Product(name, myCategor.getName(), price, categoryId);
 		added=products.add(myProduct);
 		return added;
 	}
@@ -207,7 +207,7 @@ public class Pcatalog {
 	
 	public static void veiwproducts(int id,int i) {
 	    pagenum = 2;
-	    for (product product : products) {
+	    for (Product product : products) {
 	        if (product.typeid == id) {
 	            logger.info(product.name);
 	        }
@@ -235,7 +235,7 @@ public class Pcatalog {
 	    pagenum = 3;
 	    boolean productFound = false;
 
-	    for (product product : products) {
+	    for (Product product : products) {
 	        if (id.equals(product.name)) {
 	        	 logger.info(product.name);
 	        	 logger.info(String.format("%d$", product.price));
@@ -289,7 +289,7 @@ if(i==0){
 	    pagenum = 4;
 	    boolean productFound = false;
 
-	    for (product product : products) {
+	    for (Product product : products) {
 	        if (product.name.equalsIgnoreCase(searchQuery)) {
 	            search = 1;
 
@@ -325,7 +325,7 @@ if(i==0){
 	    }
 	}
 	}
-	public static void buy(product product,String modle, String date,int i) {
+	public static void buy(Product product,String modle, String date,int i) {
 	    Scanner scanner = new Scanner(System.in);
 String model;
 		if(i==0){
@@ -383,11 +383,11 @@ if(i==0){
 
 	public static boolean deleteproduct (String name) {
 		boolean isRemoved= false;
-		for (product prod : products) {
+		for (Product prod : products) {
 			
 	if(name.equalsIgnoreCase(prod.name))	{
 
-		product productToRemove = new product(prod.name,prod.type,prod.price,prod.typeid);	
+		Product productToRemove = new Product(prod.name,prod.type,prod.price,prod.typeid);	
 		
 		products.remove(productToRemove);
 		 isRemoved= true;
@@ -423,7 +423,7 @@ if(category.getId()==id)	{
 
 public static void updateproduct(int id ,String name , int price ,int typeid) {
 	
-	for (product product : products) {
+	for (Product product : products) {
 		if (product.getPid() == id) {
 			product.name=name;
 			product.price=price;

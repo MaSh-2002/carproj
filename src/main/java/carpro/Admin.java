@@ -84,13 +84,13 @@ public void displayDashboard(List<User> usercont) {
 
 public void printcatalogs() {
 	List<Category> categories = Pcatalog.getCategories1();
-	List<product> products = Pcatalog.getProducts1();
+	List<Product> products = Pcatalog.getProducts1();
 	
 		
 		for (Category category : categories) {
 		
 			 logger.info(category.getName());
-			for (product product : products) {
+			for (Product product : products) {
 				if (product.typeid == category.getId()) {
 					 logger.info(product.name);
 

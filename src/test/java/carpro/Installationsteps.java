@@ -12,7 +12,7 @@ public class Installationsteps {
 	  private static final Logger logger = Logger.getLogger(Installationsteps.class.getName());
     private Pcatalog catalog = new Pcatalog();
     private Installer installer = new Installer();
-private product product =new product("wheel", "Exterior", 50, 1);
+private Product product =new Product("wheel", "Exterior", 50, 1);
     @Given("the user in  the product details page")
     public void the_user_in_the_product_details_page() {
     	 logger.info("User is on the product details page.");

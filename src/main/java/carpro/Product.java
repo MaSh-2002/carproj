@@ -1,6 +1,6 @@
 package carpro;
 
-public class product {
+public class Product {
 	
 	public static final int idSequence = 0;
 	   
@@ -16,10 +16,10 @@ public class product {
     }
 
     static void setPid(int pid) {
-        product.pid = pid;
+        Product.pid = pid;
     }
     
-	public product(String name, String type,int price,int typeid) {
+	public Product(String name, String type,int price,int typeid) {
 		this.name=name;
 		this.type=type;
 		this.price=price;
