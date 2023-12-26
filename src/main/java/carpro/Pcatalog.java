@@ -263,7 +263,7 @@ public class Pcatalog {
 	}
 
 	public void setPagenum(int i) {
-	
+	this.pagenum=i;
 	
 	}
 
