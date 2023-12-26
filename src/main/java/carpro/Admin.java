@@ -17,7 +17,7 @@ public class Admin {
 	}
 
 public void adminWork() {
-	System.out.println("welcome ");
+	 logger.info("Welcome");
 }
 //////////
 
@@ -49,14 +49,14 @@ public void displayDashboard(ArrayList<User> usercont) {
 				
 				switch (choice2) {
 					case 1:
-						System.out.print("Enter catagory name:");
+						 logger.info("Enter catagory name:");
 						
 						Scanner sc = new Scanner(System.in);						
                         String s= sc.nextLine();
 						Pcatalog.addCategory(s);
 						break;
 					case 2:
-						System.out.print("Enter catagory numbers:");
+						 logger.info("Enter catagory numbers:");
 
 						Scanner scr = new Scanner(System.in);						
                         int st= scr.nextInt();
@@ -75,11 +75,11 @@ public void displayDashboard(ArrayList<User> usercont) {
 				
 				switch (choice3) {
 					case 1:
-						System.out.print("Enter product name:");
+						 logger.info("Enter product name:");
 						int price = scanner.nextInt(); 
-						System.out.print("Enter product price:");
+						 logger.info("Enter product price:");
 						String name  =scanner.nextLine();
-						System.out.print("Enter catagory number:");
+						 logger.info("Enter catagory number:");
 						int num = scanner.nextInt(); 
 
 					Pcatalog.addProduct(price, name, num);
@@ -107,10 +107,10 @@ public void printcatalogs() {// print catagories for admin
 		
 		for (Category category : categories) {
 		
-			System.out.println(category.getName());
+			 logger.info(category.getName());
 			for (product product : products) {
 				if (product.typeid == category.getId()) {
-					System.out.println(product.name);
+					 logger.info(product.name);
 
 					
 				}
@@ -130,7 +130,7 @@ public void veiwCustomer(ArrayList<User> usercont) {
 				
 
 			
-				System.out.println(user1.getUsername());
+				 logger.info(user1.getUsername());
 
 	
 }
