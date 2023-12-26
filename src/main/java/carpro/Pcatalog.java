@@ -399,16 +399,14 @@ if(category.getId()==id)	{
 
 
 
-public static void updateproduct(int id ,String name , int price ,int typeid) {
-	
-	for (Product product : products) {
-		if (product.getPid() == id) {
-			product.getName();
-			product.getPrice();
-			product.getTypeid();
-		}
-	}
-	
-	
+public static void updateproduct(int id) {
+    for (Product product : products) {
+        if (product.getPid() == id) {
+            
+            product.setName("UpdatedName");
+            product.setPrice(0);  
+            product.setTypeid(0); 
+        }
+    }
 }
 }
