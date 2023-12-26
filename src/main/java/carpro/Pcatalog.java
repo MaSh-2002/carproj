@@ -220,15 +220,10 @@ public class Pcatalog {
 
 	    for (Product product : products) {
 	        if (id.equals(product.getName())) {
-	            logger.info(product.getName());
+	        	 logger.info(product.getName());
+	        	 logger.info(String.format("%d$", product.getPrice()));
 
-	            // Conditionally invoke methods based on some condition
-	            if (i==0) {
-	                logger.info(String.format("%d$", product.getPrice()));
-	                logger.info(product.getType());
-	            
-	       
-	            
+	        	 logger.info(product.getType());
 
 			if(i==0){
 				 logger.info("Enter 1 if you want to buy this product ");
@@ -260,7 +255,7 @@ public class Pcatalog {
 	        logger.info("Product not found.");
 	    }
 	    }
-	}
+	
 	    
 	public int getPagenum() {
 
